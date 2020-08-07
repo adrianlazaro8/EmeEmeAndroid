@@ -1,20 +1,27 @@
+import dependencies.AndroidTestDependencies
+import dependencies.Application
+import dependencies.Build
+import dependencies.Dependencies
+import dependencies.Java
+import dependencies.SupportDependencies
+import dependencies.TestDependencies
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion Application.compile_sdk
 
     defaultConfig {
-        applicationId "com.adlagar.emeeme"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        applicationId Application.id
+        minSdkVersion Application.min_sdk
+        targetSdkVersion Application.target_sdk
+        versionCode Application.version_code
+        versionName Application.version_name
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner AndroidTestDependencies.instrumentation_runner
     }
 
     buildTypes {
@@ -23,18 +30,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions{
+        sourceCompatibility = Java.java_version
+        targetCompatibility = Java.java_version
+    }
+
+    kotlinOptions{
+        jvmTarget = Java.java_version
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.firebase:firebase-analytics:17.4.4'
-    implementation 'com.google.firebase:firebase-firestore:21.5.0'
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation Dependencies.kotlin_standard_library
+    implementation Dependencies.kotlin_core
+    implementation SupportDependencies.appcompat
+    implementation SupportDependencies.contraint_layout
+    implementation Dependencies.firebase_analytics
+    implementation Dependencies.firebase_firestore
+    testImplementation TestDependencies.junit
+    androidTestImplementation AndroidTestDependencies.junit_androidx
+    androidTestImplementation AndroidTestDependencies.espresso
 
 }
