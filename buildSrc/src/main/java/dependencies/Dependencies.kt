@@ -7,4 +7,6 @@ object Dependencies {
     val kotlin_core = "androidx.core:core-ktx:${Versions.core_ktx}"
     val firebase_analytics = "com.google.firebase:firebase-analytics:${Versions.firebase_analytics}"
     val firebase_firestore = "com.google.firebase:firebase-firestore:${Versions.firebase_firestore}"
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val dagger = "com.google.dagger:dagger:${Versions.dagger}"
 }

@@ -1,4 +1,5 @@
 import dependencies.AndroidTestDependencies
+import dependencies.AnnotationProcessor
 import dependencies.Application
 import dependencies.Build
 import dependencies.Dependencies
@@ -49,8 +50,12 @@ dependencies {
     implementation SupportDependencies.contraint_layout
     implementation Dependencies.firebase_analytics
     implementation Dependencies.firebase_firestore
+    implementation Dependencies.retrofit
+    implementation Dependencies.dagger
+
     testImplementation TestDependencies.junit
     androidTestImplementation AndroidTestDependencies.junit_androidx
     androidTestImplementation AndroidTestDependencies.espresso
 
+    annotationProcessor AnnotationProcessor.dagger_annotation_processor
 }

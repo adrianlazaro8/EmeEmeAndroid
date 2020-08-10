@@ -15,4 +15,7 @@ object Versions  {
     val junit = "4.13"
     val junit_androidx = "1.1.1"
     val espresso_core = "3.2.0"
+
+    val dagger = "2.8"
+    val retrofit = "2.9.0"
 }
