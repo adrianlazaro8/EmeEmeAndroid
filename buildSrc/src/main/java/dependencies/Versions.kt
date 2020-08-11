@@ -18,4 +18,6 @@ object Versions  {
 
     val dagger = "2.8"
     val retrofit = "2.9.0"
+
+    val navigation = "2.3.0"
 }

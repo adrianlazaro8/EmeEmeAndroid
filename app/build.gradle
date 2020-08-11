@@ -52,10 +52,14 @@ dependencies {
     implementation Dependencies.firebase_firestore
     implementation Dependencies.retrofit
     implementation Dependencies.dagger
+    implementation Dependencies.navigation_fragment
+    implementation Dependencies.navigation_ui
 
     testImplementation TestDependencies.junit
+
     androidTestImplementation AndroidTestDependencies.junit_androidx
     androidTestImplementation AndroidTestDependencies.espresso
+    androidTestImplementation AndroidTestDependencies.navigation
 
     annotationProcessor AnnotationProcessor.dagger_annotation_processor
 }
