@@ -23,6 +23,12 @@ allprojects {
     }
 }
 
+ext {
+    Properties properties = new Properties()
+    properties.load(rootProject.file('local.properties').newDataInputStream())
+    MAPS_KEY = properties.getProperty('maps')
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
