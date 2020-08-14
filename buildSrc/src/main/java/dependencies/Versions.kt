@@ -20,4 +20,6 @@ object Versions  {
     val retrofit = "2.9.0"
 
     val navigation = "2.3.0"
+    val maps = "2.0.3"
+    val maps_ktx = "1.7.0"
 }
