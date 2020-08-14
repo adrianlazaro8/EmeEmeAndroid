@@ -1,7 +1,8 @@
-package com.adlagar.emeeme
+package com.adlagar.emeeme.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.adlagar.emeeme.R
 
 class MainActivity: AppCompatActivity() {
 
