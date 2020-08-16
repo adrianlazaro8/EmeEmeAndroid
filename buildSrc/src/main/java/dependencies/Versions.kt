@@ -22,4 +22,6 @@ object Versions  {
     val navigation = "2.3.0"
     val maps = "2.0.3"
     val maps_ktx = "1.7.0"
+
+    val material_design = "1.2.0"
 }

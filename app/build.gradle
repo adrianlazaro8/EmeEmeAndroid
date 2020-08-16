@@ -50,14 +50,15 @@ dependencies {
     implementation Dependencies.kotlin_core
     implementation SupportDependencies.appcompat
     implementation SupportDependencies.contraint_layout
+    implementation SupportDependencies.material_design
     implementation Dependencies.firebase_analytics
     implementation Dependencies.firebase_firestore
     implementation Dependencies.retrofit
     implementation Dependencies.dagger
     implementation Dependencies.navigation_fragment
     implementation Dependencies.navigation_ui
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation Dependencies.maps
+    implementation Dependencies.maps_ktx
 
     testImplementation TestDependencies.junit
 
