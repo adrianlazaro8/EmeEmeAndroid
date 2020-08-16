@@ -35,4 +35,8 @@ class ContactFragment : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
+
+    companion object {
+        fun newInstance() = ContactFragment()
+    }
 }
