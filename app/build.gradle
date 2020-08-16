@@ -45,7 +45,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation Dependencies.kotlin_standard_library
     implementation Dependencies.kotlin_core
     implementation SupportDependencies.appcompat
@@ -67,4 +66,8 @@ dependencies {
     androidTestImplementation AndroidTestDependencies.navigation
 
     annotationProcessor AnnotationProcessor.dagger_annotation_processor
+
+    implementation project(":data")
+    implementation project(":usecases")
+    implementation project(":domain")
 }
