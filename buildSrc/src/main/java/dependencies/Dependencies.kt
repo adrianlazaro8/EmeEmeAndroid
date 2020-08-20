@@ -7,6 +7,7 @@ object Dependencies {
     val firebase_firestore = "com.google.firebase:firebase-firestore:${Versions.firebase_firestore}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    val dagger_compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
     val navigation_fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     val navigation_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     val maps = "com.google.android.gms:play-services-maps:${Versions.maps}"

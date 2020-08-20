@@ -10,6 +10,7 @@ import dependencies.TestDependencies
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
 
 android {
@@ -58,6 +59,8 @@ dependencies {
     implementation Dependencies.navigation_ui
     implementation Dependencies.maps
     implementation Dependencies.maps_ktx
+
+    kapt Dependencies.dagger_compiler
 
     testImplementation TestDependencies.junit
 
