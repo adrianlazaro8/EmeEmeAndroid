@@ -12,6 +12,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion Application.compile_sdk
@@ -53,6 +54,7 @@ dependencies {
     implementation SupportDependencies.material_design
     implementation Dependencies.firebase_analytics
     implementation Dependencies.firebase_firestore
+    implementation Dependencies.crashlytics
     implementation Dependencies.retrofit
     implementation Dependencies.dagger
     implementation Dependencies.navigation_fragment
