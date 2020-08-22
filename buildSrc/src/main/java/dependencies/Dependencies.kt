@@ -12,4 +12,5 @@ object Dependencies {
     val navigation_ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     val maps = "com.google.android.gms:play-services-maps:${Versions.maps}"
     val maps_ktx = "com.google.maps.android:maps-utils-ktx:${Versions.maps_ktx}"
+    val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 }

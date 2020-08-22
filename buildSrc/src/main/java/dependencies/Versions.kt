@@ -24,4 +24,5 @@ object Versions  {
     val maps_ktx = "1.7.0"
 
     val material_design = "1.2.0"
+    val glide = "4.11.0"
 }

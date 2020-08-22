@@ -59,6 +59,7 @@ dependencies {
     implementation Dependencies.navigation_ui
     implementation Dependencies.maps
     implementation Dependencies.maps_ktx
+    implementation Dependencies.glide
 
     kapt Dependencies.dagger_compiler
 
@@ -68,7 +69,8 @@ dependencies {
     androidTestImplementation AndroidTestDependencies.espresso
     androidTestImplementation AndroidTestDependencies.navigation
 
-    annotationProcessor AnnotationProcessor.dagger_annotation_processor
+    annotationProcessor AnnotationProcessor.dagger
+    annotationProcessor AnnotationProcessor.glide
 
     implementation project(":data")
     implementation project(":usecases")
