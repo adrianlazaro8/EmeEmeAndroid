@@ -1,4 +1,4 @@
-package com.adlagar.data
+package com.adlagar.data.sources
 
 import com.adlagar.domain.model.Contact
 
