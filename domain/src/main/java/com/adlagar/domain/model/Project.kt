@@ -8,5 +8,7 @@ data class Project(
     val thumbnail: String,
     val featured: Boolean,
     val city: String,
-    val images: List<ProjectImage>
+    val images: List<ProjectImage>,
+    val latitude: Long,
+    val longitude: Long
 )
