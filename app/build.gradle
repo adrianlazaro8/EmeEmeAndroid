@@ -44,6 +44,16 @@ android {
     kotlinOptions{
         jvmTarget = Java.java_version
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        user {
+            dimension "version"
+        }
+        owner {
+            dimension "version"
+        }
+    }
 }
 
 dependencies {
