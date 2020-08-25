@@ -6,20 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.adlagar.emeeme.R
+import com.adlagar.emeeme.databinding.FragmentAboutUsBinding
 
 class AboutUsFragment : Fragment() {
+
+    private var binding: FragmentAboutUsBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_us, container, false)
+        binding = FragmentAboutUsBinding.inflate(inflater)
+        return binding?.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             AboutUsFragment()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

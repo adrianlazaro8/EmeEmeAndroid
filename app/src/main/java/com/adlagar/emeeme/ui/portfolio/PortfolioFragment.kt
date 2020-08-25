@@ -6,19 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.adlagar.emeeme.R
+import com.adlagar.emeeme.databinding.FragmentPortfolioBinding
 
 class PortfolioFragment : Fragment() {
+
+    private var binding: FragmentPortfolioBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_portfolio, container, false)
+        binding = FragmentPortfolioBinding.inflate(inflater)
+        return binding?.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             PortfolioFragment()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }

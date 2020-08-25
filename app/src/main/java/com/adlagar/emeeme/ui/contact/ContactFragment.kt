@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.adlagar.emeeme.R
+import com.adlagar.emeeme.databinding.FragmentContactBinding
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -15,6 +16,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 class ContactFragment : Fragment() {
+
+    private var binding: FragmentContactBinding? = null
 
     private val callback = OnMapReadyCallback { googleMap ->
         val sydney = LatLng(-34.0, 151.0)
@@ -27,7 +30,8 @@ class ContactFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+        binding = FragmentContactBinding.inflate(inflater)
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,5 +42,10 @@ class ContactFragment : Fragment() {
 
     companion object {
         fun newInstance() = ContactFragment()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 }
