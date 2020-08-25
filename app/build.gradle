@@ -17,6 +17,10 @@ apply plugin: 'com.google.firebase.crashlytics'
 android {
     compileSdkVersion Application.compile_sdk
 
+    viewBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId Application.id
         minSdkVersion Application.min_sdk

@@ -2,7 +2,7 @@ package dependencies
 
 object Versions  {
     val gradle = "6.1.1"
-    val android_gradle = "3.5.0"
+    val android_gradle = "3.6.0"
     val google_services = "4.3.3"
     val crashlytics_build = "2.2.0"
 
