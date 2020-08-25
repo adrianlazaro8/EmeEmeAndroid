@@ -1,9 +1,10 @@
-package com.adlagar.emeeme.ui.main
+package com.adlagar.emeeme.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.adlagar.emeeme.R
+import com.adlagar.emeeme.ui.contact.ContactFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity() {

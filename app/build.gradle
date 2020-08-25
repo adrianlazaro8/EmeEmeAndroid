@@ -72,6 +72,7 @@ dependencies {
     implementation Dependencies.maps
     implementation Dependencies.maps_ktx
     implementation Dependencies.glide
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     kapt Dependencies.dagger_compiler
 

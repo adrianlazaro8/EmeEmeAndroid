@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.main
+package com.adlagar.emeeme.ui.contact
 
 import androidx.fragment.app.Fragment
 

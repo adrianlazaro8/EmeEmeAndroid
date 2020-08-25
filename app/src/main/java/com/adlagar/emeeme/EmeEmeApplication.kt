@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui
+package com.adlagar.emeeme
 
 import android.app.Application
 import com.adlagar.emeeme.di.DaggerEmeEmeApplicationComponent
