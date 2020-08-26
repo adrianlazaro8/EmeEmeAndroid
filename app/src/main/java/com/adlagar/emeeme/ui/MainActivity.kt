@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.adlagar.emeeme.R
+import com.adlagar.emeeme.ui.about.AboutUsFragment
 import com.adlagar.emeeme.ui.contact.ContactFragment
+import com.adlagar.emeeme.ui.portfolio.PortfolioFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: AppCompatActivity() {
@@ -16,11 +18,11 @@ class MainActivity: AppCompatActivity() {
         bottom_navigation_view.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.action_projects -> {
-                    openFragment(ContactFragment.newInstance())
+                    openFragment(PortfolioFragment.newInstance())
                     true
                 }
                 R.id.action_study -> {
-                    openFragment(ContactFragment.newInstance())
+                    openFragment(AboutUsFragment.newInstance())
                     true
                 }
                 R.id.action_contact -> {
