@@ -15,7 +15,7 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        bottom_navigation_view.setOnNavigationItemSelectedListener {
+        bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.action_projects -> {
                     openFragment(PortfolioFragment.newInstance())
@@ -36,7 +36,7 @@ class MainActivity: AppCompatActivity() {
 
     private fun openFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment, fragment)
+        transaction.replace(R.id.navHostFragment, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }
