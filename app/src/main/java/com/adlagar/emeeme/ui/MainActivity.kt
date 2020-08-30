@@ -3,6 +3,8 @@ package com.adlagar.emeeme.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.adlagar.emeeme.R
 import com.adlagar.emeeme.ui.about.AboutUsFragment
 import com.adlagar.emeeme.ui.contact.ContactFragment
@@ -15,17 +17,18 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        bottomNavigationView.setupWithNavController(navHostFragment.findNavController())
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.action_projects -> {
+                R.id.portfolio -> {
                     openFragment(PortfolioFragment.newInstance())
                     true
                 }
-                R.id.action_study -> {
+                R.id.about_us -> {
                     openFragment(AboutUsFragment.newInstance())
                     true
                 }
-                R.id.action_contact -> {
+                R.id.contact -> {
                     openFragment(ContactFragment.newInstance())
                     true
                 }
