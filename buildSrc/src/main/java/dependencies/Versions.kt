@@ -27,4 +27,7 @@ object Versions  {
 
     val material_design = "1.2.0"
     val glide = "4.11.0"
+
+    val lifecycle_version = "2.2.0"
+    val arch_version = "2.1.0"
 }
