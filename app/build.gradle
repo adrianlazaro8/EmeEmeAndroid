@@ -76,10 +76,10 @@ dependencies {
     implementation Dependencies.maps
     implementation Dependencies.maps_ktx
     implementation Dependencies.glide
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation Dependencies.legacy
     implementation Dependencies.livedata
     implementation Dependencies.viewmodels
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation Dependencies.lifecycle_extensions
 
     kapt Dependencies.dagger_compiler
     kapt Dependencies.compiler

@@ -17,4 +17,6 @@ object Dependencies {
     val viewmodels = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
     val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle_version}"
     val compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle_version}"
+    val legacy = "androidx.legacy:legacy-support-v4:${Versions.legacy}"
+    val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle_version}"
 }
