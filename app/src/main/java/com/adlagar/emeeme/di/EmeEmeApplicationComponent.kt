@@ -6,7 +6,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component
+@Component(modules = [DataModule::class])
 interface EmeEmeApplicationComponent {
 
     @Component.Factory
