@@ -1,5 +1,8 @@
 package com.adlagar.emeeme.di
 
+import com.adlagar.data.repository.ProjectsRepository
+import com.adlagar.data.source.CompanyRemoteDataSource
+import com.adlagar.data.source.ProjectsRemoteDataSource
 import com.adlagar.emeeme.data.FakeCompanyDataSource
 import com.adlagar.emeeme.data.FakeRemoteDataSource
 import com.google.firebase.firestore.FirebaseFirestore
@@ -10,11 +13,15 @@ import dagger.Provides
 class DataModule {
 
     @Provides
-    fun provideFirestoreInstance() = FirebaseFirestore.getInstance()
+    fun provideFirestoreInstance(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
     @Provides
-    fun provideCompanyDataSource() = FakeCompanyDataSource()
+    fun provideCompanyDataSource(): CompanyRemoteDataSource = FakeCompanyDataSource()
 
     @Provides
-    fun provideRemoteDataSource() = FakeRemoteDataSource()
+    fun provideRemoteDataSource(): ProjectsRemoteDataSource = FakeRemoteDataSource()
+
+    @Provides
+    fun provideProjectsRepository(projectsRemoteDataSource: ProjectsRemoteDataSource) =
+        ProjectsRepository(projectsRemoteDataSource)
 }

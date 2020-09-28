@@ -9,8 +9,12 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [DataModule::class, ViewModelsModule::class])
+@Component(modules = [DataModule::class, ViewModelsModule::class, UseCasesModule::class])
 interface EmeEmeApplicationComponent {
+
+    val porfolioViewModel: PortfolioViewModel
+    val aboutUsViewModel: AboutUsViewModel
+    val contactViewModel: ContactViewModel
 
     @Component.Factory
     interface Factory {
