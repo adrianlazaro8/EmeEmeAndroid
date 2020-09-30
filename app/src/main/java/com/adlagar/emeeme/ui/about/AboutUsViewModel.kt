@@ -13,7 +13,7 @@ class AboutUsViewModel(
     private val getAboutUsInfo: GetAboutUsInfo
 ): ViewModel() {
 
-    private fun getAboutCompany() = GlobalScope.launch {
+    fun getAboutCompany() = GlobalScope.launch {
         getAboutUsInfo.invoke()
     }
 
