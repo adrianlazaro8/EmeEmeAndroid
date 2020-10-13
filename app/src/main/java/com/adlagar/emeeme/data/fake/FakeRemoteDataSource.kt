@@ -1,7 +1,8 @@
-package com.adlagar.emeeme.data
+package com.adlagar.emeeme.data.fake
 
 import com.adlagar.data.source.ProjectsRemoteDataSource
 import com.adlagar.domain.model.Project
+import com.adlagar.emeeme.data.fake.fakeProjects
 
 class FakeRemoteDataSource: ProjectsRemoteDataSource{
 

@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.data
+package com.adlagar.emeeme.data.fake
 
 import com.adlagar.domain.model.Project
 
