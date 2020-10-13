@@ -68,6 +68,7 @@ dependencies {
     implementation SupportDependencies.material_design
     implementation Dependencies.firebase_analytics
     implementation Dependencies.firebase_firestore
+    implementation Dependencies.firebase_storage
     implementation Dependencies.crashlytics
     implementation Dependencies.retrofit
     implementation Dependencies.dagger

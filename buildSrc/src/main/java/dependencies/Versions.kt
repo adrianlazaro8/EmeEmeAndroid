@@ -12,6 +12,7 @@ object Versions  {
     val contraint_layout = "1.1.3"
     val firebase_analytics = "17.4.4"
     val firebase_firestore = "21.5.0"
+    val firebase_storage = "19.2.0"
     val crashlytics = "17.1.1"
 
     val junit = "4.13"
