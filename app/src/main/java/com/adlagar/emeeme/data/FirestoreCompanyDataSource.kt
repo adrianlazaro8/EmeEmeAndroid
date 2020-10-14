@@ -12,11 +12,11 @@ class FirestoreCompanyDataSource : CompanyRemoteDataSource {
         val db = FirebaseFirestore.getInstance()
         val projects = db.collection("company").document("contact")
         projects.get().addOnSuccessListener {
-            if (!it.exists()) {
-                continuation.resume(Contact())
-            } else {
+            if (it.exists()) {
                 val contact = it.toObject(Contact::class.java)
                 continuation.resume(contact ?: Contact())
+            } else {
+                continuation.resume(Contact())
             }
         }
     }
@@ -25,11 +25,11 @@ class FirestoreCompanyDataSource : CompanyRemoteDataSource {
         val db = FirebaseFirestore.getInstance()
         val projects = db.collection("company").document("about_us")
         projects.get().addOnSuccessListener {
-            if (!it.exists()) {
-                continuation.resume("")
-            } else {
+            if (it.exists()) {
                 val textCompany = it.toString()
                 continuation.resume(textCompany)
+            } else {
+                continuation.resume("")
             }
         }
     }
