@@ -1,8 +1,8 @@
 package com.adlagar.domain.model
 
 data class Contact (
-    val name: String,
-    val latitude: Float,
-    val longitude: Float,
-    val contactPersons: List<ContactPerson>
+    val name: String = "",
+    val latitude: Float = 0F,
+    val longitude: Float = 0F,
+    val contactPersons: List<ContactPerson> = listOf()
 )

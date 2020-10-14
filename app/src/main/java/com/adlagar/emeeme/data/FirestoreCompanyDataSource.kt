@@ -8,15 +8,24 @@ import kotlin.coroutines.resume
 
 class FirestoreCompanyDataSource : CompanyRemoteDataSource {
 
-    override suspend fun getContactInfo(): Contact {
-        TODO("Not yet implemented")
+    override suspend fun getContactInfo(): Contact = suspendCancellableCoroutine { continuation ->
+        val db = FirebaseFirestore.getInstance()
+        val projects = db.collection("company").document("contact")
+        projects.get().addOnSuccessListener {
+            if (!it.exists()) {
+                continuation.resume(Contact())
+            } else {
+                val contact = it.toObject(Contact::class.java)
+                continuation.resume(contact ?: Contact())
+            }
+        }
     }
 
     override suspend fun getAboutCompany(): String = suspendCancellableCoroutine { continuation ->
         val db = FirebaseFirestore.getInstance()
-        val projects = db.collection("about_us")
+        val projects = db.collection("company").document("about_us")
         projects.get().addOnSuccessListener {
-            if (it.isEmpty) {
+            if (!it.exists()) {
                 continuation.resume("")
             } else {
                 val textCompany = it.toString()
