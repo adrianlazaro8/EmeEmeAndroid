@@ -30,7 +30,7 @@ class FirestoreCompanyDataSource : CompanyRemoteDataSource {
         val projects = db.collection("company").document("about_us")
         projects.get().addOnSuccessListener {
             if (it.exists()) {
-                val textCompany = it.toString()
+                val textCompany: String = it.data?.get("description") as String? ?: ""
                 continuation.resume(textCompany)
             } else {
                 continuation.resume("")
