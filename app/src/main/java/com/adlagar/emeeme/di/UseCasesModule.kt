@@ -2,10 +2,7 @@ package com.adlagar.emeeme.di
 
 import com.adlagar.data.repository.ProjectsRepository
 import com.adlagar.data.source.CompanyRemoteDataSource
-import com.adlagar.usecases.CreateProject
-import com.adlagar.usecases.GetAboutUsInfo
-import com.adlagar.usecases.GetAllProjects
-import com.adlagar.usecases.GetContactInfo
+import com.adlagar.usecases.*
 import dagger.Module
 import dagger.Provides
 
@@ -27,4 +24,8 @@ class UseCasesModule {
     @Provides
     fun getContactInfoProvider(companyRemoteDataSource: CompanyRemoteDataSource) =
         GetContactInfo(companyRemoteDataSource)
+
+    @Provides
+    fun getModifyAboutUsInfoProvider(companyRemoteDataSource: CompanyRemoteDataSource) =
+        ModifyAboutUsInfo(companyRemoteDataSource)
 }

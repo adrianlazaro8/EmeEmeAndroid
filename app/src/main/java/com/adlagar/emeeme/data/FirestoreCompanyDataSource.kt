@@ -1,5 +1,6 @@
 package com.adlagar.emeeme.data
 
+import android.util.Log
 import com.adlagar.data.source.CompanyRemoteDataSource
 import com.adlagar.domain.model.Contact
 import com.google.firebase.firestore.FirebaseFirestore
@@ -7,6 +8,9 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
 class FirestoreCompanyDataSource : CompanyRemoteDataSource {
+
+    private val TAG = "FirestoreCompanyDS"
+
 
     override suspend fun getContactInfo(): Contact = suspendCancellableCoroutine { continuation ->
         val db = FirebaseFirestore.getInstance()
@@ -34,4 +38,11 @@ class FirestoreCompanyDataSource : CompanyRemoteDataSource {
         }
     }
 
+    override suspend fun modifyAboutCompany(text: String): Boolean = suspendCancellableCoroutine { continuation ->
+        val db = FirebaseFirestore.getInstance()
+        db.collection("company").document("about_us")
+            .set(text)
+            .addOnSuccessListener { continuation.resume(true) }
+            .addOnFailureListener { continuation.resume(false) }
+    }
 }

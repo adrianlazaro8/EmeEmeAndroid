@@ -27,6 +27,14 @@ class AboutUsFragment : Fragment() {
         return binding?.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding?.let {binding ->
+            binding.btAboutusContinue.setOnClickListener {
+                viewModel.modifyAboutCompany(binding.etAboutus.text.toString())
+            }
+        }
+    }
+
     companion object {
         @JvmStatic
         fun newInstance() =

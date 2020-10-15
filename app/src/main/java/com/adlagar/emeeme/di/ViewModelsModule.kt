@@ -3,10 +3,7 @@ package com.adlagar.emeeme.di
 import com.adlagar.emeeme.ui.about.AboutUsViewModel
 import com.adlagar.emeeme.ui.contact.ContactViewModel
 import com.adlagar.emeeme.ui.portfolio.PortfolioViewModel
-import com.adlagar.usecases.CreateProject
-import com.adlagar.usecases.GetAboutUsInfo
-import com.adlagar.usecases.GetAllProjects
-import com.adlagar.usecases.GetContactInfo
+import com.adlagar.usecases.*
 import dagger.Module
 import dagger.Provides
 
@@ -30,8 +27,12 @@ class ViewModelsModule {
 
     @Provides
     fun aboutUsViewModelProvider(
-        getAboutUsInfo: GetAboutUsInfo
+        getAboutUsInfo: GetAboutUsInfo,
+        modifyAboutUsInfo: ModifyAboutUsInfo
     ): AboutUsViewModel {
-        return AboutUsViewModel(getAboutUsInfo)
+        return AboutUsViewModel(
+            getAboutUsInfo,
+            modifyAboutUsInfo
+        )
     }
 }
