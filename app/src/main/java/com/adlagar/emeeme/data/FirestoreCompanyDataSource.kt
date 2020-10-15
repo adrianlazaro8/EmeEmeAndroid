@@ -40,8 +40,13 @@ class FirestoreCompanyDataSource : CompanyRemoteDataSource {
 
     override suspend fun modifyAboutCompany(text: String): Boolean = suspendCancellableCoroutine { continuation ->
         val db = FirebaseFirestore.getInstance()
+
+        val aboutUsInfo = hashMapOf(
+            "description" to text
+        )
+
         db.collection("company").document("about_us")
-            .set(text)
+            .set(aboutUsInfo)
             .addOnSuccessListener { continuation.resume(true) }
             .addOnFailureListener { continuation.resume(false) }
     }
