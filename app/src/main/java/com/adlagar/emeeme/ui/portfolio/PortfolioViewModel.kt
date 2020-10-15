@@ -23,11 +23,11 @@ class PortfolioViewModel(
             return _model
         }
 
-    private fun getProjects() =  GlobalScope.launch {
+    private fun getProjects() =  viewModelScope.launch {
         getAllProjects.invoke()
     }
 
-    private fun createProject(project: Project) = GlobalScope.launch {
+    private fun createProject(project: Project) = viewModelScope.launch {
         createProject.invoke(project)
     }
 
