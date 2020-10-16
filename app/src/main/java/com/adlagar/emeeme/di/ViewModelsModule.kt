@@ -20,9 +20,10 @@ class ViewModelsModule {
 
     @Provides
     fun contactViewModelProvider(
-        contactInfo: GetContactInfo
+        contactInfo: GetContactInfo,
+        modifyContactInfo: ModifyContactInfo
     ): ContactViewModel {
-        return ContactViewModel(contactInfo)
+        return ContactViewModel(contactInfo, modifyContactInfo)
     }
 
     @Provides

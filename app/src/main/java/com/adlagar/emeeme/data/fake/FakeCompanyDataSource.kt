@@ -9,6 +9,10 @@ class FakeCompanyDataSource: CompanyRemoteDataSource{
         TODO("Not yet implemented")
     }
 
+    override suspend fun modifyContactInfo(contact: Contact): Boolean {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun getAboutCompany(): String {
         TODO("Not yet implemented")
     }

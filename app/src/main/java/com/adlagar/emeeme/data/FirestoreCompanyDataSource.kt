@@ -1,6 +1,5 @@
 package com.adlagar.emeeme.data
 
-import android.util.Log
 import com.adlagar.data.source.CompanyRemoteDataSource
 import com.adlagar.domain.model.Contact
 import com.google.firebase.firestore.FirebaseFirestore
@@ -12,7 +11,6 @@ class FirestoreCompanyDataSource(
 ) : CompanyRemoteDataSource {
 
     private val TAG = "FirestoreCompanyDS"
-
 
     override suspend fun getContactInfo(): Contact = suspendCancellableCoroutine { continuation ->
         val projects = firebaseFirestore.collection("company").document("contact")
@@ -26,6 +24,21 @@ class FirestoreCompanyDataSource(
         }
     }
 
+    override suspend fun modifyContactInfo(contact: Contact): Boolean =
+        suspendCancellableCoroutine { continuation ->
+            val contactInfo = hashMapOf(
+                "name" to contact.name,
+                "latitude" to contact.latitude,
+                "longitude" to contact.longitude,
+                "contactPerson" to contact.contactPersons
+            )
+
+            firebaseFirestore.collection("company").document("contact")
+                .set(contactInfo)
+                .addOnSuccessListener { continuation.resume(true) }
+                .addOnFailureListener { continuation.resume(false) }
+        }
+
     override suspend fun getAboutCompany(): String = suspendCancellableCoroutine { continuation ->
         val projects = firebaseFirestore.collection("company").document("about_us")
         projects.get().addOnSuccessListener {
@@ -38,16 +51,17 @@ class FirestoreCompanyDataSource(
         }
     }
 
-    override suspend fun modifyAboutCompany(text: String): Boolean = suspendCancellableCoroutine { continuation ->
-        val db = FirebaseFirestore.getInstance()
+    override suspend fun modifyAboutCompany(text: String): Boolean =
+        suspendCancellableCoroutine { continuation ->
+            val db = FirebaseFirestore.getInstance()
 
-        val aboutUsInfo = hashMapOf(
-            "description" to text
-        )
+            val aboutUsInfo = hashMapOf(
+                "description" to text
+            )
 
-        db.collection("company").document("about_us")
-            .set(aboutUsInfo)
-            .addOnSuccessListener { continuation.resume(true) }
-            .addOnFailureListener { continuation.resume(false) }
-    }
+            db.collection("company").document("about_us")
+                .set(aboutUsInfo)
+                .addOnSuccessListener { continuation.resume(true) }
+                .addOnFailureListener { continuation.resume(false) }
+        }
 }

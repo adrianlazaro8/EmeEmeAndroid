@@ -26,6 +26,10 @@ class UseCasesModule {
         GetContactInfo(companyRemoteDataSource)
 
     @Provides
+    fun getModifyContactInfoProvider(companyRemoteDataSource: CompanyRemoteDataSource) =
+        ModifyContactInfo(companyRemoteDataSource)
+
+    @Provides
     fun getModifyAboutUsInfoProvider(companyRemoteDataSource: CompanyRemoteDataSource) =
         ModifyAboutUsInfo(companyRemoteDataSource)
 }
