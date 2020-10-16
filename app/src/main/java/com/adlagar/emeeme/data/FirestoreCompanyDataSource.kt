@@ -2,6 +2,7 @@ package com.adlagar.emeeme.data
 
 import com.adlagar.data.source.CompanyRemoteDataSource
 import com.adlagar.domain.model.Contact
+import com.adlagar.domain.model.ContactPerson
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
@@ -30,7 +31,7 @@ class FirestoreCompanyDataSource(
                 "name" to contact.name,
                 "latitude" to contact.latitude,
                 "longitude" to contact.longitude,
-                "contactPerson" to contact.contactPersons
+                "contactPerson" to contact.contactPerson
             )
 
             firebaseFirestore.collection("company").document("contact")
