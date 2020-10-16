@@ -7,7 +7,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
-class FirestoreRemoteDataSource : ProjectsRemoteDataSource {
+class FirestoreRemoteDataSource(
+    private val firebaseFirestore: FirebaseFirestore
+) : ProjectsRemoteDataSource {
 
     private val TAG = "FirestoreRemoteDS"
 
@@ -25,8 +27,7 @@ class FirestoreRemoteDataSource : ProjectsRemoteDataSource {
             "longitude" to project.longitude
         )
 
-        val db = FirebaseFirestore.getInstance()
-        db.collection("projects").document(project.id.toString())
+        firebaseFirestore.collection("projects").document(project.id.toString())
             .set(city)
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
@@ -34,8 +35,7 @@ class FirestoreRemoteDataSource : ProjectsRemoteDataSource {
     }
 
     override suspend fun getProjects(): List<Project> = suspendCancellableCoroutine {continuation ->
-        val db = FirebaseFirestore.getInstance()
-        val projects = db.collection("projects")
+        val projects = firebaseFirestore.collection("projects")
         projects.get().addOnSuccessListener {
             if (it.isEmpty) {
                 continuation.resume(listOf())

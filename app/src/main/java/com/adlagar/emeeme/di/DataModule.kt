@@ -9,16 +9,18 @@ import com.adlagar.emeeme.data.fake.FakeRemoteDataSource
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class DataModule {
 
+    @Singleton
     @Provides
     fun provideFirestoreInstance(): FirebaseFirestore = FirebaseFirestore.getInstance()
 
     @Provides
-    fun provideCompanyDataSource(): CompanyRemoteDataSource =
-        FirestoreCompanyDataSource()
+    fun provideCompanyDataSource(firebaseFirestore: FirebaseFirestore): CompanyRemoteDataSource =
+        FirestoreCompanyDataSource(firebaseFirestore)
 
     @Provides
     fun provideRemoteDataSource(): ProjectsRemoteDataSource =

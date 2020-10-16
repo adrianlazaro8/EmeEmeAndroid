@@ -7,14 +7,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
-class FirestoreCompanyDataSource : CompanyRemoteDataSource {
+class FirestoreCompanyDataSource(
+    private val firebaseFirestore: FirebaseFirestore
+) : CompanyRemoteDataSource {
 
     private val TAG = "FirestoreCompanyDS"
 
 
     override suspend fun getContactInfo(): Contact = suspendCancellableCoroutine { continuation ->
-        val db = FirebaseFirestore.getInstance()
-        val projects = db.collection("company").document("contact")
+        val projects = firebaseFirestore.collection("company").document("contact")
         projects.get().addOnSuccessListener {
             if (it.exists()) {
                 val contact = it.toObject(Contact::class.java)
@@ -26,8 +27,7 @@ class FirestoreCompanyDataSource : CompanyRemoteDataSource {
     }
 
     override suspend fun getAboutCompany(): String = suspendCancellableCoroutine { continuation ->
-        val db = FirebaseFirestore.getInstance()
-        val projects = db.collection("company").document("about_us")
+        val projects = firebaseFirestore.collection("company").document("about_us")
         projects.get().addOnSuccessListener {
             if (it.exists()) {
                 val textCompany: String = it.data?.get("description") as String? ?: ""
