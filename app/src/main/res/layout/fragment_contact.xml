@@ -43,17 +43,34 @@
             android:textStyle="bold"
             tool:text="EmeEme" />
 
-        <EditText
-            android:id="@+id/et_contact_person_victor"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24sp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tool:text="Victor" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_contact_person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tool:text="Victor" />
+
+            <EditText
+                android:id="@+id/et_contact_person_surname"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tool:text="Muela" />
+
+        </LinearLayout>
 
         <EditText
-            android:id="@+id/et_contact_person_victor_telephone"
+            android:id="@+id/et_contact_person_telephone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:alpha="0.8"

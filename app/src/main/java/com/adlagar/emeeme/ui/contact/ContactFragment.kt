@@ -19,7 +19,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import kotlinx.android.synthetic.main.fragment_about_us.view.*
 
 
 class ContactFragment : Fragment() {
@@ -54,7 +53,7 @@ class ContactFragment : Fragment() {
     }
 
     private fun saveButton() {
-        binding?.let {binding ->
+        binding?.let { binding ->
             binding.btContactSave.setOnClickListener {
                 val contact: Contact = createContactFromData(binding)
                 viewModel.updateContactInfo(contact)
@@ -67,7 +66,13 @@ class ContactFragment : Fragment() {
         contact.name = binding.etContactTitle.text.toString()
         contact.latitude = googleMap.cameraPosition.target.latitude
         contact.longitude = googleMap.cameraPosition.target.longitude
-        contact.contactPerson = mutableListOf(ContactPerson("Victor", "Vic", "+34 666 666 666"))
+        contact.contactPerson = mutableListOf(
+            ContactPerson(
+                binding.etContactPersonName.text.toString(),
+                binding.etContactPersonSurname.text.toString(),
+                binding.etContactPersonTelephone.text.toString()
+            )
+        )
         return contact
     }
 
@@ -87,14 +92,16 @@ class ContactFragment : Fragment() {
             .target(contactPosition)
             .zoom(20f)
             .build()
+        
         mapFragment.getMapAsync {
             it.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
         }
 
         binding?.let {
             it.etContactTitle.setText(contact.name)
-            it.etContactPersonVictor.setText(contact.contactPerson[0].name)
-            it.etContactPersonVictorTelephone.setText(contact.contactPerson[0].telephone)
+            it.etContactPersonName.setText(contact.contactPerson[0].name)
+            it.etContactPersonSurname.setText(contact.contactPerson[0].name)
+            it.etContactPersonTelephone.setText(contact.contactPerson[0].telephone)
         }
     }
 
