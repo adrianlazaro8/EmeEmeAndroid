@@ -90,9 +90,9 @@ class ContactFragment : Fragment() {
         )
         val cameraPosition = CameraPosition.Builder()
             .target(contactPosition)
-            .zoom(20f)
+            .zoom(17f)
             .build()
-        
+
         mapFragment.getMapAsync {
             it.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
         }
@@ -100,7 +100,7 @@ class ContactFragment : Fragment() {
         binding?.let {
             it.etContactTitle.setText(contact.name)
             it.etContactPersonName.setText(contact.contactPerson[0].name)
-            it.etContactPersonSurname.setText(contact.contactPerson[0].name)
+            it.etContactPersonSurname.setText(contact.contactPerson[0].surname)
             it.etContactPersonTelephone.setText(contact.contactPerson[0].telephone)
         }
     }
