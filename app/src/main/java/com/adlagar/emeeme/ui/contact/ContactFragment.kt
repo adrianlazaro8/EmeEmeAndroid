@@ -19,6 +19,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 
 
 class ContactFragment : Fragment() {
@@ -48,6 +49,9 @@ class ContactFragment : Fragment() {
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync {
             googleMap = it
+            GoogleMapUiSettingsCustomizer(
+                googleMap
+            )
         }
         saveButton()
     }

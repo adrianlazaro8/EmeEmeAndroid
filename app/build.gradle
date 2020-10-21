@@ -53,9 +53,11 @@ android {
     productFlavors {
         user {
             dimension "version"
+            applicationIdSuffix ".user"
         }
         owner {
             dimension "version"
+            applicationIdSuffix ".owner"
         }
     }
 }
