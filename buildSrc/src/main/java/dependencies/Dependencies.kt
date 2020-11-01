@@ -20,4 +20,5 @@ object Dependencies {
     val compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle_version}"
     val legacy = "androidx.legacy:legacy-support-v4:${Versions.legacy}"
     val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle_version}"
+    val easyimage = "com.github.jkwiecien:EasyImage:${Versions.easyimage_version}"
 }
