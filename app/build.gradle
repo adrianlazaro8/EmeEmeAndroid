@@ -84,6 +84,7 @@ dependencies {
     implementation Dependencies.viewmodels
     implementation Dependencies.lifecycle_extensions
     implementation Dependencies.easyimage
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     kapt Dependencies.dagger_compiler
     kapt Dependencies.compiler

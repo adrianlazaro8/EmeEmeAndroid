@@ -3,6 +3,12 @@
     <string name="projects">Proyectos</string>
     <string name="study">Estudio</string>
     <string name="contact">Contacto</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Create Project   -->
+    <string name="project_name">Nombre del proyecto</string>
+    <string name="project_description">Descripción del proyecto</string>
+    <string name="latitude">Latitud</string>
+    <string name="longitude">Longitud</string>
+    <string name="project_featured">Proyecto destacado</string>
+
 </resources>
