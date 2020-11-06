@@ -10,5 +10,6 @@
     <string name="latitude">Latitud</string>
     <string name="longitude">Longitud</string>
     <string name="project_featured">Proyecto destacado</string>
+    <string name="next">Continuar</string>
 
 </resources>

@@ -2,16 +2,15 @@ package com.adlagar.emeeme.ui.portfolio
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.adlagar.emeeme.R
+import androidx.navigation.fragment.findNavController
 import com.adlagar.emeeme.databinding.FragmentPortfolioBinding
 import com.adlagar.emeeme.ui.MainActivity
-import com.adlagar.emeeme.ui.contact.ContactViewModel
 import com.adlagar.emeeme.ui.extensions.getViewModelFactory
 
 class PortfolioFragment : Fragment() {
@@ -31,13 +30,16 @@ class PortfolioFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.model.observe(viewLifecycleOwner, Observer (::updateUi))
+        viewModel.model.observe(viewLifecycleOwner, Observer(::updateUi))
+        binding?.fabCreateProject?.setOnClickListener {
+            findNavController().navigate(PortfolioFragmentDirections.actionPortfolioToCreateProjectFragment())
+        }
     }
 
     private fun updateUi(uiModel: PortfolioViewModel.UiModel) {
         when (uiModel) {
-            is PortfolioViewModel.UiModel.Content -> Log.d("","")
-            is PortfolioViewModel.UiModel.Loading -> Log.d("","")
+            is PortfolioViewModel.UiModel.Content -> Log.d("", "")
+            is PortfolioViewModel.UiModel.Loading -> Log.d("", "")
         }
     }
 
