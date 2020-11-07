@@ -11,7 +11,7 @@ class UseCasesModule {
 
     @Provides
     fun createProjectProvider(projectsRepository: ProjectsRepository) =
-        CreateProject(projectsRepository)
+        CreateProjectUseCase(projectsRepository)
 
     @Provides
     fun getAboutUsInfoProvider(companyRemoteDataSource: CompanyRemoteDataSource) =
@@ -19,7 +19,7 @@ class UseCasesModule {
 
     @Provides
     fun getAllProjectsProvider(projectsRepository: ProjectsRepository) =
-        GetAllProjects(projectsRepository)
+        GetAllProjectsUseCase(projectsRepository)
 
     @Provides
     fun getContactInfoProvider(companyRemoteDataSource: CompanyRemoteDataSource) =

@@ -5,18 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.adlagar.emeeme.R
+import androidx.fragment.app.viewModels
+import com.adlagar.emeeme.databinding.FragmentCreateProjectBinding
+import com.adlagar.emeeme.ui.MainActivity
+import com.adlagar.emeeme.ui.extensions.getViewModelFactory
 
 class CreateProjectFragment : Fragment() {
+
+    private var binding: FragmentCreateProjectBinding? = null
+
+    private val viewModel: CreateProjectViewModel by viewModels {
+        getViewModelFactory { (activity as MainActivity).applicationComponent.createProjectViewModel }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_create_project, container, false)
-    }
-
-    companion object {
-        fun newInstance(param1: String, param2: String) = CreateProjectFragment()
+        binding = FragmentCreateProjectBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 }

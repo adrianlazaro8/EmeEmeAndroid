@@ -2,6 +2,7 @@ package com.adlagar.emeeme.di
 
 import com.adlagar.emeeme.ui.about.AboutUsViewModel
 import com.adlagar.emeeme.ui.contact.ContactViewModel
+import com.adlagar.emeeme.ui.createproject.CreateProjectViewModel
 import com.adlagar.emeeme.ui.portfolio.PortfolioViewModel
 import com.adlagar.usecases.*
 import dagger.Module
@@ -11,11 +12,17 @@ import dagger.Provides
 class ViewModelsModule {
 
     @Provides
-    fun porfolioViewModelProviders(
-        createProject: CreateProject,
-        getAllProjects: GetAllProjects
+    fun porfolioViewModelProvider(
+        getAllProjectsUseCase: GetAllProjectsUseCase
     ): PortfolioViewModel {
-        return PortfolioViewModel(createProject, getAllProjects)
+        return PortfolioViewModel(getAllProjectsUseCase)
+    }
+
+    @Provides
+    fun createProjectViewModelProvider(
+        createProjectUseCase: CreateProjectUseCase
+    ): CreateProjectViewModel {
+        return CreateProjectViewModel(createProjectUseCase)
     }
 
     @Provides

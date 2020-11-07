@@ -4,16 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.adlagar.data.source.ProjectsRemoteDataSource
 import com.adlagar.domain.model.Project
-import com.adlagar.usecases.CreateProject
-import com.adlagar.usecases.GetAllProjects
-import kotlinx.coroutines.GlobalScope
+import com.adlagar.usecases.GetAllProjectsUseCase
 import kotlinx.coroutines.launch
 
 class PortfolioViewModel(
-    private val createProject: CreateProject,
-    private val getAllProjects: GetAllProjects
+    private val getAllProjectsUseCase: GetAllProjectsUseCase
 ): ViewModel() {
 
     private val _model = MutableLiveData<UiModel>()
@@ -24,16 +20,12 @@ class PortfolioViewModel(
         }
 
     private fun getProjects() =  viewModelScope.launch {
-        getAllProjects.invoke()
-    }
-
-    private fun createProject(project: Project) = viewModelScope.launch {
-        createProject.invoke(project)
+        getAllProjectsUseCase.invoke()
     }
 
     private fun refresh() {
         viewModelScope.launch {
-            _model.value = UiModel.Content(getAllProjects.invoke())
+            _model.value = UiModel.Content(getAllProjectsUseCase.invoke())
         }
     }
 
