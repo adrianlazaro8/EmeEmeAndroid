@@ -25,4 +25,5 @@ class CreateProjectFragment : Fragment() {
         binding = FragmentCreateProjectBinding.inflate(inflater, container, false)
         return binding?.root
     }
+
 }
