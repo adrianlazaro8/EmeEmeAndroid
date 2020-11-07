@@ -14,7 +14,7 @@ class FirestoreRemoteDataSource(
     private val TAG = "FirestoreRemoteDS"
 
     override suspend fun createProject(project: Project) {
-        val city = hashMapOf(
+        val projectHash = hashMapOf(
             "id" to project.id,
             "title" to project.title,
             "description" to project.description,
@@ -28,7 +28,7 @@ class FirestoreRemoteDataSource(
         )
 
         firebaseFirestore.collection("projects").document(project.id.toString())
-            .set(city)
+            .set(projectHash)
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
