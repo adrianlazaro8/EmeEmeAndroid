@@ -31,17 +31,21 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
+                android:id="@+id/tv_latitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/latitude"
-                android:inputType="none" />
+                android:inputType="none"
+                android:text="0.0" />
 
-            <EditText
+            <TextView
+                android:id="@+id/tv_longitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/longitude"
-                android:inputType="none" />
+                android:inputType="none"
+                android:text="0.0" />
 
         </LinearLayout>
 
@@ -76,11 +80,11 @@
     <View
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <Button
         android:id="@+id/bt_create_project"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/create_project"/>
+        android:text="@string/create_project" />
 </LinearLayout>

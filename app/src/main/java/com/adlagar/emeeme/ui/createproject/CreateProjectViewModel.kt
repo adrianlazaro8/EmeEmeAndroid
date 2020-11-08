@@ -18,7 +18,7 @@ class CreateProjectViewModel(
             return _model
         }
 
-    private fun createProject(project: Project) = viewModelScope.launch {
+    fun createProject(project: Project) = viewModelScope.launch {
         createProjectUseCase.invoke(project)
     }
 
