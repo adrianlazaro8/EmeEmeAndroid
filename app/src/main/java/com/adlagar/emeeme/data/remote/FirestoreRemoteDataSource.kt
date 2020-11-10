@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.data
+package com.adlagar.emeeme.data.remote
 
 import android.util.Log
 import com.adlagar.data.source.ProjectsRemoteDataSource

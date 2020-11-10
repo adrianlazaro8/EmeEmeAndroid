@@ -23,7 +23,7 @@ class PortfolioFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceStatfe: Bundle?
     ): View? {
         binding = FragmentPortfolioBinding.inflate(inflater)
         return binding?.root

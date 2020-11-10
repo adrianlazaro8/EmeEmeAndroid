@@ -1,8 +1,7 @@
-package com.adlagar.emeeme.data
+package com.adlagar.emeeme.data.remote
 
 import com.adlagar.data.source.CompanyRemoteDataSource
 import com.adlagar.domain.model.Contact
-import com.adlagar.domain.model.ContactPerson
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
