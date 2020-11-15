@@ -43,12 +43,6 @@ class PortfolioFragment : Fragment() {
         }
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            PortfolioFragment()
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null

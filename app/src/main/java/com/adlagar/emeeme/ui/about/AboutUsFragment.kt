@@ -48,12 +48,6 @@ class AboutUsFragment : Fragment() {
         binding?.etAboutus?.setText(string)
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            AboutUsFragment()
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null

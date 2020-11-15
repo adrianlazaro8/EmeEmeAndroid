@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.adlagar.domain.model.Contact
 import com.adlagar.domain.model.ContactPerson
 import com.adlagar.emeeme.R
+import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 import com.adlagar.emeeme.databinding.FragmentContactBinding
 import com.adlagar.emeeme.ui.MainActivity
 import com.adlagar.emeeme.ui.extensions.getViewModelFactory
@@ -19,7 +20,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 
 
 class ContactFragment : Fragment() {
@@ -107,10 +107,6 @@ class ContactFragment : Fragment() {
             it.etContactPersonSurname.setText(contact.contactPerson[0].surname)
             it.etContactPersonTelephone.setText(contact.contactPerson[0].telephone)
         }
-    }
-
-    companion object {
-        fun newInstance() = ContactFragment()
     }
 
     override fun onDestroyView() {
