@@ -35,7 +35,7 @@ class CreateProjectFragment : Fragment() {
 
     private fun createProjectButton() {
         binding?.let {
-            it.btCreateProject.setOnClickListener {_ ->
+            it.btCreateProject.setOnClickListener { _ ->
 
                 val latitude = it.tvLatitude.text.toString().toDouble()
                 val longitude = it.tvLongitude.text.toString().toDouble()
@@ -47,9 +47,9 @@ class CreateProjectFragment : Fragment() {
                     2
                 )
 
-                val city = try{
-                    addresses.get(0).getAddressLine(0)
-                } catch (exception: IndexOutOfBoundsException){
+                val city = try {
+                    addresses[0].subAdminArea
+                } catch (exception: IndexOutOfBoundsException) {
                     "Unknown"
                 }
 
