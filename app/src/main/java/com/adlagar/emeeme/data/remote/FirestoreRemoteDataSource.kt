@@ -27,22 +27,22 @@ class FirestoreRemoteDataSource(
             "longitude" to project.longitude
         )
 
-        firebaseFirestore.collection("projects").document(project.id.toString())
-            .set(projectHash)
+        firebaseFirestore.collection("projects").add(projectHash)
             .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
 
     }
 
-    override suspend fun getProjects(): List<Project> = suspendCancellableCoroutine {continuation ->
-        val projects = firebaseFirestore.collection("projects")
-        projects.get().addOnSuccessListener {
-            if (it.isEmpty) {
-                continuation.resume(listOf())
-            } else {
-                val projects = it.toObjects(Project::class.java)
-                continuation.resume(projects)
+    override suspend fun getProjects(): List<Project> =
+        suspendCancellableCoroutine { continuation ->
+            val projects = firebaseFirestore.collection("projects")
+            projects.get().addOnSuccessListener {
+                if (it.isEmpty) {
+                    continuation.resume(listOf())
+                } else {
+                    val projects = it.toObjects(Project::class.java)
+                    continuation.resume(projects)
+                }
             }
         }
-    }
 }
