@@ -32,8 +32,12 @@ class SelectLocationBottomSheet(private val location: (LatLng) -> Unit): BottomS
             googleMap = map
         }
 
-        binding?.btSelectLocation?.setOnClickListener {
+        binding?.btAccept?.setOnClickListener {
             location.invoke(googleMap.cameraPosition.target)
+            dismiss()
+        }
+
+        binding?.btCancel?.setOnClickListener {
             dismiss()
         }
     }
