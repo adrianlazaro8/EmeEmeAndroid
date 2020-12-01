@@ -9,21 +9,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:layout_marginStart="14sp"
-        android:layout_marginEnd="14sp"
         app:cardBackgroundColor="@android:color/darker_gray"
         app:cardCornerRadius="20sp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="match_parent"
             app:cardCornerRadius="20sp">
 
             <ImageView
                 android:id="@+id/iv_portfolio_item"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimary" />
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic" />
 
             <LinearLayout
                 android:id="@+id/ll_tag_new"
@@ -40,22 +39,22 @@
                     android:paddingEnd="14sp"
                     android:paddingBottom="2sp"
                     android:textStyle="bold"
-                    tools:text="Nuevo" />
+                    tools:text="@tools:sample/full_names" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/tv_project_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="16sp"
+                android:layout_marginBottom="6sp"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="@tools:sample/full_names" />
 
-        <TextView
-            android:id="@+id/tv_project_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="16sp"
-            android:layout_marginBottom="6sp"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            tools:text="Project title" />
+        </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
 
