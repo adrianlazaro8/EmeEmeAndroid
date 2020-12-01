@@ -1,7 +1,6 @@
 import dependencies.AndroidTestDependencies
 import dependencies.AnnotationProcessor
 import dependencies.Application
-import dependencies.Build
 import dependencies.Dependencies
 import dependencies.Java
 import dependencies.SupportDependencies
