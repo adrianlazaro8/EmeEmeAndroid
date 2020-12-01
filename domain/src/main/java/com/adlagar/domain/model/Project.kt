@@ -1,7 +1,7 @@
 package com.adlagar.domain.model
 
 data class Project(
-    val id: Int = 0,
+    val id: String = "0",
     val title: String = "",
     val description: String = "",
     val createdDateMillis: Long = 0,

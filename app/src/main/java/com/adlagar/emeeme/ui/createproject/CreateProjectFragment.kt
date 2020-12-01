@@ -38,6 +38,7 @@ class CreateProjectFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         createProjectButton()
+
         mapFragment = childFragmentManager.findFragmentById(R.id.mapview) as SupportMapFragment
         binding?.let {
             mapFragment.getMapAsync { map ->
@@ -52,10 +53,26 @@ class CreateProjectFragment : Fragment() {
                 GoogleMapUiSettingsCustomizer(
                     map
                 )
+
+                map.setOnMapClickListener {_ ->
+                    showBottomSheetToSelectLocation(it)
+                }
             }
         }
 
     }
+
+    private fun showBottomSheetToSelectLocation(binding: FragmentCreateProjectBinding) {
+        val selectLocationBottomSheet = SelectLocationBottomSheet{latLng ->
+            binding.let {
+                it.tvLatitude.text = latLng.latitude.toString()
+                it.tvLongitude.text = latLng.longitude.toString()
+            }
+        }
+        selectLocationBottomSheet.isCancelable = false
+        selectLocationBottomSheet.show(childFragmentManager, "location_sheet")
+    }
+
 
     private fun createProjectButton() {
         binding?.let {
