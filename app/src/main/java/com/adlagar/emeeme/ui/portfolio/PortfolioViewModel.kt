@@ -30,7 +30,7 @@ class PortfolioViewModel(
 
     sealed class UiModel {
         object Loading : UiModel()
-        class Content(projects: List<Project>) : UiModel()
+        data class Content(val projects: List<Project>) : UiModel()
     }
 
     private fun fillProject(project: Project) {

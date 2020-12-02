@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.adlagar.domain.model.Project
+import com.adlagar.emeeme.R
 import com.adlagar.emeeme.databinding.FragmentPortfolioBinding
 import com.adlagar.emeeme.ui.MainActivity
 import com.adlagar.emeeme.ui.extensions.getViewModelFactory
@@ -38,10 +40,19 @@ class PortfolioFragment : Fragment() {
 
     private fun updateUi(uiModel: PortfolioViewModel.UiModel) {
         when (uiModel) {
-            is PortfolioViewModel.UiModel.Content -> Log.d("", "")
+            is PortfolioViewModel.UiModel.Content -> showProjects(uiModel.projects)
             is PortfolioViewModel.UiModel.Loading -> Log.d("", "")
         }
     }
+
+    private fun showProjects(projects: List<Project>) {
+        binding?.let {
+            it.rvProjects.addItemDecoration(
+                RecyclerPorfolioDecorator(resources.getDimension(R.dimen.recycler_margin).toInt()))
+            it.rvProjects.adapter = PortfolioAdapter(projects)
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
