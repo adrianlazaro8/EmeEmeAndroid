@@ -23,7 +23,7 @@ class PortfolioViewModel(
     private fun getProjects() {
         viewModelScope.launch {
             val projects = getAllProjectsUseCase.invoke()
-            projects.map { fillProject(it) }
+                .map { fillProject(it) }
             _model.value = UiModel.Content(projects)
         }
     }
@@ -33,12 +33,13 @@ class PortfolioViewModel(
         data class Content(val projects: List<Project>) : UiModel()
     }
 
-    private fun fillProject(project: Project) {
-        project.thumbnail = "https://picsum.photos/200/300"
+    private fun fillProject(project: Project): Project {
+        project.thumbnail = "https://picsum.photos/500/300"
         project.images = mutableListOf(
-            ProjectImage(1, "test", "https://picsum.photos/200/300"),
-            ProjectImage(2, "test2", "https://picsum.photos/200/300"),
-            ProjectImage(3, "test3", "https://picsum.photos/200/300")
+            ProjectImage(1, "test", "https://picsum.photos/500/300"),
+            ProjectImage(2, "test2", "https://picsum.photos/500/300"),
+            ProjectImage(3, "test3", "https://picsum.photos/500/300")
         )
+        return project
     }
 }

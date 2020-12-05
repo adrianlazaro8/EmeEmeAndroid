@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.databinding.ItemPortfolioBinding
+import com.adlagar.emeeme.ui.extensions.loadImage
 
 class PortfolioAdapter(private val projects: List<Project>) :
     RecyclerView.Adapter<PortfolioAdapter.ProjectsViewHolder>() {
@@ -17,6 +18,7 @@ class PortfolioAdapter(private val projects: List<Project>) :
     override fun onBindViewHolder(holder: ProjectsViewHolder, position: Int) {
         val currentProject = projects[0]
         with(currentProject){
+            holder.ivProject.loadImage(currentProject.thumbnail)
             holder.tvName.text = title
         }
     }
@@ -25,7 +27,7 @@ class PortfolioAdapter(private val projects: List<Project>) :
         return projects.size
     }
 
-    class ProjectsViewHolder(private val itemPortfolioBinding: ItemPortfolioBinding)
+    class ProjectsViewHolder(itemPortfolioBinding: ItemPortfolioBinding)
         : RecyclerView.ViewHolder(itemPortfolioBinding.root) {
 
         val tvName = itemPortfolioBinding.tvProjectName
