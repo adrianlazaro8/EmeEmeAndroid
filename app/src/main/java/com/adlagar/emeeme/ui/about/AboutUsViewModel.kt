@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.adlagar.domain.model.Contact
+import com.adlagar.domain.model.AboutUs
 import com.adlagar.usecases.GetAboutUsInfo
 import com.adlagar.usecases.ModifyAboutUsInfo
 import kotlinx.coroutines.launch
@@ -26,9 +26,9 @@ class AboutUsViewModel(
         _aboutUs.value = UiState.AboutUsInfo(getAboutUsInfo.invoke())
     }
 
-    fun modifyAboutCompany(text: String) = viewModelScope.launch {
+    fun modifyAboutCompany(image: String, text: String) = viewModelScope.launch {
         _aboutUs.value = UiState.Loading
-        val updated = modifyAboutUsInfo.invoke(text)
+        val updated = modifyAboutUsInfo.invoke(image, text)
         if (!updated) {
             _aboutUs.value = UiState.Error
         } else {
@@ -39,8 +39,7 @@ class AboutUsViewModel(
     sealed class UiState {
         object Loading : UiState()
         object Error : UiState()
-        class AboutUsInfo(val string: String) : UiState()
-        class ContactInfo(val contact: Contact) : UiState()
+        class AboutUsInfo(val aboutUs: AboutUs) : UiState()
     }
 
 }

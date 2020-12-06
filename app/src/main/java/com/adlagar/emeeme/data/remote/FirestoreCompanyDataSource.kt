@@ -1,6 +1,7 @@
 package com.adlagar.emeeme.data.remote
 
 import com.adlagar.data.source.CompanyRemoteDataSource
+import com.adlagar.domain.model.AboutUs
 import com.adlagar.domain.model.Contact
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -39,25 +40,35 @@ class FirestoreCompanyDataSource(
                 .addOnFailureListener { continuation.resume(false) }
         }
 
-    override suspend fun getAboutCompany(): String = suspendCancellableCoroutine { continuation ->
+    override suspend fun getAboutCompany(): AboutUs = suspendCancellableCoroutine { continuation ->
         val projects = firebaseFirestore.collection("company").document("about_us")
         projects.get().addOnSuccessListener {
             if (it.exists()) {
-                val textCompany: String = it.data?.get("description") as String? ?: ""
-                continuation.resume(textCompany)
+                val description: String = it.data?.get("description") as String? ?: ""
+                val image: String = it.data?.get("image") as String? ?: ""
+                val aboutUs = AboutUs(image, description)
+                continuation.resume(aboutUs)
             } else {
-                continuation.resume("")
+                continuation.resume(AboutUs())
             }
         }
     }
 
-    override suspend fun modifyAboutCompany(text: String): Boolean =
+    override suspend fun modifyAboutCompany(image: String, description: String): Boolean =
         suspendCancellableCoroutine { continuation ->
             val db = FirebaseFirestore.getInstance()
 
-            val aboutUsInfo = hashMapOf(
-                "description" to text
-            )
+
+            val aboutUsInfo = if (image.isEmpty()) {
+                hashMapOf(
+                    "description" to description
+                )
+            } else {
+                hashMapOf(
+                    "image" to image,
+                    "description" to description
+                )
+            }
 
             db.collection("company").document("about_us")
                 .set(aboutUsInfo)
