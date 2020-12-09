@@ -1,8 +1,10 @@
 package com.adlagar.data
 
+import java.io.File
+
 interface ImageUploader {
-    fun upload(filePath: String,
-               onSuccess: () -> Unit,
+    fun upload(filePath: File?,
+               onSuccess: (String) -> Unit,
                onFailure: (String) -> Unit,
                progressListener: (Long, Long) -> Unit
     )

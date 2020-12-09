@@ -8,6 +8,7 @@ import com.adlagar.domain.model.AboutUs
 import com.adlagar.usecases.GetAboutUsInfo
 import com.adlagar.usecases.ModifyAboutUsInfo
 import kotlinx.coroutines.launch
+import java.io.File
 
 class AboutUsViewModel(
     private val getAboutUsInfo: GetAboutUsInfo,
@@ -26,9 +27,9 @@ class AboutUsViewModel(
         _aboutUs.value = UiState.AboutUsInfo(getAboutUsInfo.invoke())
     }
 
-    fun modifyAboutCompany(image: String, text: String) = viewModelScope.launch {
+    fun modifyAboutCompany(file: File?, text: String) = viewModelScope.launch {
         _aboutUs.value = UiState.Loading
-        val updated = modifyAboutUsInfo.invoke(image, text)
+        val updated = modifyAboutUsInfo.invoke(file, text)
         if (!updated) {
             _aboutUs.value = UiState.Error
         } else {

@@ -1,14 +1,17 @@
 package com.adlagar.emeeme.data.remote
 
+import com.adlagar.data.ImageUploader
 import com.adlagar.data.source.CompanyRemoteDataSource
 import com.adlagar.domain.model.AboutUs
 import com.adlagar.domain.model.Contact
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.suspendCancellableCoroutine
+import java.io.File
 import kotlin.coroutines.resume
 
 class FirestoreCompanyDataSource(
-    private val firebaseFirestore: FirebaseFirestore
+    private val firebaseFirestore: FirebaseFirestore,
+    private val imageUploader: ImageUploader
 ) : CompanyRemoteDataSource {
 
     private val TAG = "FirestoreCompanyDS"
@@ -54,25 +57,29 @@ class FirestoreCompanyDataSource(
         }
     }
 
-    override suspend fun modifyAboutCompany(image: String, description: String): Boolean =
+    override suspend fun modifyAboutCompany(file: File?, description: String): Boolean =
         suspendCancellableCoroutine { continuation ->
             val db = FirebaseFirestore.getInstance()
 
 
-            val aboutUsInfo = if (image.isEmpty()) {
-                hashMapOf(
+            imageUploader.upload(file, onSuccess = {
+                val aboutUsInfo = hashMapOf(
+                    "image" to it,
                     "description" to description
                 )
-            } else {
-                hashMapOf(
-                    "image" to image,
-                    "description" to description
-                )
-            }
 
-            db.collection("company").document("about_us")
-                .set(aboutUsInfo)
-                .addOnSuccessListener { continuation.resume(true) }
-                .addOnFailureListener { continuation.resume(false) }
+                db.collection("company").document("about_us")
+                    .set(aboutUsInfo)
+                    .addOnSuccessListener { continuation.resume(true) }
+                    .addOnFailureListener { continuation.resume(false) }
+            },
+            onFailure = {
+
+            },
+            progressListener = { l: Long, l1: Long ->
+
+            })
+
+
         }
 }

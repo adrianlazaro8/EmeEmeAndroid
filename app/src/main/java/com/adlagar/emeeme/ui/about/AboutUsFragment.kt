@@ -46,14 +46,17 @@ class AboutUsFragment : Fragment() {
         viewModel.aboutUs.observe(viewLifecycleOwner, Observer(::updateUI))
         binding?.let { binding ->
             binding.btAboutusContinue.setOnClickListener {
-                viewModel.modifyAboutCompany(aboutUs?.image.toString(), binding.etAboutus.text.toString())
+                viewModel.modifyAboutCompany(imageSelector.file, binding.etAboutus.text.toString())
             }
 
             binding.ivAboutUs.setOnClickListener {
 
                 if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
                     == PackageManager.PERMISSION_DENIED){
-                    ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), 0);
+                    ActivityCompat.requestPermissions(requireActivity(), arrayOf(
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                    ), 0);
                 } else {
                     takePhoto()
                 }

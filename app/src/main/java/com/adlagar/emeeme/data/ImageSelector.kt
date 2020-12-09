@@ -7,6 +7,9 @@ import pl.aprilapps.easyphotopicker.*
 import java.io.File
 
 class ImageSelector(context: Context, private val fragment: Fragment) {
+
+    var file: File? = null
+
     val easyImage: EasyImage = EasyImage.Builder(context) // Chooser only
         .setChooserTitle("Elige imagen")
         // Will tell chooser that it should show documents or gallery apps
@@ -30,7 +33,8 @@ class ImageSelector(context: Context, private val fragment: Fragment) {
         easyImage.handleActivityResult(requestCode, resultCode, data, fragment.requireActivity(), object: DefaultCallback(){
             override fun onMediaFilesPicked(imageFiles: Array<MediaFile>, source: MediaSource) {
                 if(imageFiles.isNotEmpty()){
-                    imagePath.invoke(imageFiles[0].file)
+                    file = imageFiles[0].file
+                    imagePath.invoke(file)
                 } else {
                     imagePath.invoke(null)
                 }
