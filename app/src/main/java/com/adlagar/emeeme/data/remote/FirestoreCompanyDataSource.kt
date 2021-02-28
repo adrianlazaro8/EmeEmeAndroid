@@ -14,8 +14,6 @@ class FirestoreCompanyDataSource(
     private val imageUploader: ImageUploader
 ) : CompanyRemoteDataSource {
 
-    private val TAG = "FirestoreCompanyDS"
-
     override suspend fun getContactInfo(): Contact = suspendCancellableCoroutine { continuation ->
         val projects = firebaseFirestore.collection("company").document("contact")
         projects.get().addOnSuccessListener {
@@ -61,7 +59,6 @@ class FirestoreCompanyDataSource(
         suspendCancellableCoroutine { continuation ->
             val db = FirebaseFirestore.getInstance()
 
-
             imageUploader.upload(file, onSuccess = {
                 val aboutUsInfo = hashMapOf(
                     "image" to it,
@@ -79,7 +76,5 @@ class FirestoreCompanyDataSource(
             progressListener = { l: Long, l1: Long ->
 
             })
-
-
         }
 }

@@ -6,5 +6,5 @@ import java.io.File
 class ModifyAboutUsInfo(
     private val companyRemoteDataSource: CompanyRemoteDataSource
 ){
-    suspend fun invoke(file: File?, text: String) = companyRemoteDataSource.modifyAboutCompany(file, text)
+    suspend fun invoke(file: File?, description: String) = companyRemoteDataSource.modifyAboutCompany(file, description)
 }

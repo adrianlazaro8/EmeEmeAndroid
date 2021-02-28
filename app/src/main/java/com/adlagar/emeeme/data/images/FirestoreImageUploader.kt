@@ -10,12 +10,12 @@ class FirestoreImageUploader(
 ) : ImageUploader {
 
     override fun upload(
-        file: File?,
+        fileToUpload: File?,
         onSuccess: (String) -> Unit,
         onFailure: (String) -> Unit,
         progressListener: (Long, Long) -> Unit
     ) {
-        val filePath = Uri.fromFile(file?.absoluteFile)
+        val filePath = Uri.fromFile(fileToUpload?.absoluteFile)
         val imagesRef = firebaseStorage.reference.child("aboutus/${System.currentTimeMillis()}.jpg")
         imagesRef.putFile(filePath)
             .addOnFailureListener {
