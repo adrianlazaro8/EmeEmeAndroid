@@ -70,11 +70,11 @@ class FirestoreCompanyDataSource(
                     .addOnSuccessListener { continuation.resume(true) }
                     .addOnFailureListener { continuation.resume(false) }
             },
-            onFailure = {
+                onFailure = {
 
-            },
-            progressListener = { l: Long, l1: Long ->
+                },
+                progressListener = { l: Long, l1: Long ->
 
-            })
+                })
         }
 }
