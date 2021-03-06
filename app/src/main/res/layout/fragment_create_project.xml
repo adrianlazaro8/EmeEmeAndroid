@@ -36,16 +36,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/latitude"
-                android:inputType="none"
-                android:text="39.46975" />
+                android:inputType="none" />
 
             <TextView
                 android:id="@+id/tv_longitude"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/longitude"
-                android:inputType="none"
-                android:text="-0.37739" />
+                android:inputType="none" />
 
         </LinearLayout>
 

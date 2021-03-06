@@ -65,8 +65,8 @@ class CreateProjectFragment : Fragment() {
     private fun showBottomSheetToSelectLocation(binding: FragmentCreateProjectBinding) {
         val selectLocationBottomSheet = SelectLocationBottomSheet{latLng ->
             binding.let {
-                it.tvLatitude.text = latLng.latitude.toString()
-                it.tvLongitude.text = latLng.longitude.toString()
+                it.tvLatitude.text = getString(R.string.latitude) + " " +latLng.latitude.toString()
+                it.tvLongitude.text = getString(R.string.longitude) + " " + latLng.longitude.toString()
             }
         }
         selectLocationBottomSheet.isCancelable = false
