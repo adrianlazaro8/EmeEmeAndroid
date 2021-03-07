@@ -3,13 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="@dimen/default_margin"
     tools:context="com.adlagar.emeeme.ui.createproject.CreateProjectFragment">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tiet_project_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/project_name" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_image_picker"
+            android:layout_width="150dp"
+            android:background="@android:color/darker_gray"
+            android:layout_height="150dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_project_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:hint="@string/project_name" />
+
+    </LinearLayout>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/tiet_project_description"

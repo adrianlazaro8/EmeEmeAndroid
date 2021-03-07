@@ -45,8 +45,8 @@ class CreateProjectFragment : Fragment() {
                 map.moveCamera(
                     CameraUpdateFactory.newLatLngZoom(
                         LatLng(
-                            it.tvLatitude.text.toString().toDouble(),
-                            it.tvLongitude.text.toString().toDouble()
+                            DEFAULT_LATITUDE,
+                            DEFAULT_LONGITUDE
                         ), 8F
                     )
                 )
@@ -54,7 +54,7 @@ class CreateProjectFragment : Fragment() {
                     map
                 )
 
-                map.setOnMapClickListener {_ ->
+                map.setOnMapClickListener { _ ->
                     showBottomSheetToSelectLocation(it)
                 }
             }
@@ -63,10 +63,11 @@ class CreateProjectFragment : Fragment() {
     }
 
     private fun showBottomSheetToSelectLocation(binding: FragmentCreateProjectBinding) {
-        val selectLocationBottomSheet = SelectLocationBottomSheet{latLng ->
+        val selectLocationBottomSheet = SelectLocationBottomSheet { latLng ->
             binding.let {
-                it.tvLatitude.text = getString(R.string.latitude) + " " +latLng.latitude.toString()
-                it.tvLongitude.text = getString(R.string.longitude) + " " + latLng.longitude.toString()
+                it.tvLatitude.text = getString(R.string.latitude) + " " + latLng.latitude.toString()
+                it.tvLongitude.text =
+                    getString(R.string.longitude) + " " + latLng.longitude.toString()
             }
         }
         selectLocationBottomSheet.isCancelable = false
@@ -109,5 +110,10 @@ class CreateProjectFragment : Fragment() {
             }
 
         }
+    }
+
+    companion object {
+        private const val DEFAULT_LATITUDE = 39.46975
+        private const val DEFAULT_LONGITUDE = -0.37739
     }
 }
