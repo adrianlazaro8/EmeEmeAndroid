@@ -1,5 +1,6 @@
 package com.adlagar.emeeme.di
 
+import com.adlagar.data.repository.ImageRepository
 import com.adlagar.data.repository.ProjectsRepository
 import com.adlagar.data.source.CompanyRemoteDataSource
 import com.adlagar.usecases.*
@@ -32,4 +33,8 @@ class UseCasesModule {
     @Provides
     fun getModifyAboutUsInfoProvider(companyRemoteDataSource: CompanyRemoteDataSource) =
         ModifyAboutUsInfo(companyRemoteDataSource)
+
+    @Provides
+    fun getUploadImageUseCaseProvider(imageRepository: ImageRepository) =
+        UploadImageUseCase(imageRepository)
 }

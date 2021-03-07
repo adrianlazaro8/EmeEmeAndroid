@@ -27,7 +27,7 @@ class AboutUsViewModel(
         _aboutUs.value = UiState.AboutUsInfo(getAboutUsInfo.invoke())
     }
 
-    fun modifyAboutCompany(file: File?, text: String) = viewModelScope.launch {
+    fun modifyAboutCompany(file: File, text: String) = viewModelScope.launch {
         _aboutUs.value = UiState.Loading
         val updated = modifyAboutUsInfo.invoke(file, text)
         if (!updated) {
