@@ -1,6 +1,7 @@
 package com.adlagar.emeeme.di
 
 import com.adlagar.data.ImageUploader
+import com.adlagar.data.repository.ImageRepository
 import com.adlagar.data.repository.ProjectsRepository
 import com.adlagar.data.source.CompanyRemoteDataSource
 import com.adlagar.data.source.ProjectsRemoteDataSource
@@ -45,4 +46,8 @@ class DataModule {
     @Provides
     fun provideProjectsRepository(projectsRemoteDataSource: ProjectsRemoteDataSource) =
         ProjectsRepository(projectsRemoteDataSource)
+
+    @Provides
+    fun provideImageRepository(imageUploader: ImageUploader) =
+        ImageRepository(imageUploader)
 }
