@@ -20,9 +20,10 @@ class ViewModelsModule {
 
     @Provides
     fun createProjectViewModelProvider(
-        createProjectUseCase: CreateProjectUseCase
+        createProjectUseCase: CreateProjectUseCase,
+        uploadImageUseCase: UploadImageUseCase
     ): CreateProjectViewModel {
-        return CreateProjectViewModel(createProjectUseCase)
+        return CreateProjectViewModel(createProjectUseCase, uploadImageUseCase)
     }
 
     @Provides

@@ -46,7 +46,9 @@ class AboutUsFragment : Fragment() {
         viewModel.aboutUs.observe(viewLifecycleOwner, Observer(::updateUI))
         binding?.let { binding ->
             binding.btAboutusContinue.setOnClickListener {
-                viewModel.modifyAboutCompany(imageSelector.file, binding.etAboutus.text.toString())
+                imageSelector.file?.let {
+                    viewModel.modifyAboutCompany(it, binding.etAboutus.text.toString())
+                }
             }
 
             binding.ivAboutUs.setOnClickListener {

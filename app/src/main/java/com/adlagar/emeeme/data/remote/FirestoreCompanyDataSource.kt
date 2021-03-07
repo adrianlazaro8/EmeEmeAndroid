@@ -55,26 +55,26 @@ class FirestoreCompanyDataSource(
         }
     }
 
-    override suspend fun modifyAboutCompany(file: File?, description: String): Boolean =
+    override suspend fun modifyAboutCompany(file: File, description: String): Boolean =
         suspendCancellableCoroutine { continuation ->
-            val db = FirebaseFirestore.getInstance()
-
-            imageUploader.upload(file, onSuccess = {
-                val aboutUsInfo = hashMapOf(
-                    "image" to it,
-                    "description" to description
-                )
-
-                db.collection("company").document("about_us")
-                    .set(aboutUsInfo)
-                    .addOnSuccessListener { continuation.resume(true) }
-                    .addOnFailureListener { continuation.resume(false) }
-            },
-                onFailure = {
-
-                },
-                progressListener = { l: Long, l1: Long ->
-
-                })
+//            val db = FirebaseFirestore.getInstance()
+//
+//            imageUploader.upload(file, onSuccess = {
+//                val aboutUsInfo = hashMapOf(
+//                    "image" to it,
+//                    "description" to description
+//                )
+//
+//                db.collection("company").document("about_us")
+//                    .set(aboutUsInfo)
+//                    .addOnSuccessListener { continuation.resume(true) }
+//                    .addOnFailureListener { continuation.resume(false) }
+//            },
+//                onFailure = {
+//
+//                },
+//                progressListener = { l: Long, l1: Long ->
+//
+//                })
         }
 }

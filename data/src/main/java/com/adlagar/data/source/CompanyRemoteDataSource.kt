@@ -8,5 +8,5 @@ interface CompanyRemoteDataSource {
     suspend fun getContactInfo(): Contact
     suspend fun modifyContactInfo(contact: Contact): Boolean
     suspend fun getAboutCompany(): AboutUs
-    suspend fun modifyAboutCompany(file: File?, description: String): Boolean
+    suspend fun modifyAboutCompany(file: File, description: String): Boolean
 }
