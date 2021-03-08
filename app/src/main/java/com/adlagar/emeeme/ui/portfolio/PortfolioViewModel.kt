@@ -23,7 +23,7 @@ class PortfolioViewModel(
     private fun getProjects() {
         viewModelScope.launch {
             val projects = getAllProjectsUseCase.invoke()
-                .map { fillProject(it) }
+//                .map { fillProject(it) }
             _model.value = UiModel.Content(projects)
         }
     }
