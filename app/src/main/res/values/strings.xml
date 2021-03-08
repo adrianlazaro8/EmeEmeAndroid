@@ -14,5 +14,8 @@
     <string name="create_project">Crear Proyecto</string>
     <string name="accept">Aceptar</string>
     <string name="cancel">Cancelar</string>
+    <string name="invalid_lat_lng">Latitud y longitud no válidos</string>
+    <string name="error">Error</string>
+    <string name="error_uploading_image">Error al subir la imagen</string>
 
 </resources>

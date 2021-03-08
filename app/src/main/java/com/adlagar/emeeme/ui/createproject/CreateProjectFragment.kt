@@ -20,6 +20,7 @@ import com.adlagar.emeeme.R
 import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentCreateProjectBinding
+import com.adlagar.emeeme.extensions.showSnackbar
 import com.adlagar.emeeme.ui.MainActivity
 import com.adlagar.emeeme.ui.extensions.getViewModelFactory
 import com.adlagar.emeeme.ui.extensions.loadImage
@@ -99,10 +100,22 @@ class CreateProjectFragment : Fragment() {
                     this::class.simpleName,
                     "Loading"
                 )
-                is CreateProjectViewModel.UiModel.Created -> findNavController().navigateUp()
-                CreateProjectViewModel.UiModel.Error -> TODO()
-                CreateProjectViewModel.UiModel.InvalidLatLng -> TODO()
-                CreateProjectViewModel.UiModel.ImageErrorUpload -> TODO()
+                is CreateProjectViewModel.UiModel.Created ->
+                    findNavController().navigateUp()
+                CreateProjectViewModel.UiModel.Error ->
+                    binding?.root?.showSnackbar(getString(R.string.error))
+                CreateProjectViewModel.UiModel.InvalidLatLng ->
+                    binding?.root?.showSnackbar(
+                        getString(
+                            R.string.invalid_lat_lng
+                        )
+                    )
+                CreateProjectViewModel.UiModel.ImageErrorUpload ->
+                    binding?.root?.showSnackbar(
+                        getString(
+                            R.string.error_uploading_image
+                        )
+                    )
             }
         })
 

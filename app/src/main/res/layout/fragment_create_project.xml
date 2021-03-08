@@ -52,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/latitude"
+                android:text="0"
                 android:inputType="none" />
 
             <TextView
@@ -59,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/longitude"
+                android:text="0"
                 android:inputType="none" />
 
         </LinearLayout>
