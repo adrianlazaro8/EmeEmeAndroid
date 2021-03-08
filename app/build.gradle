@@ -84,6 +84,7 @@ dependencies {
     implementation Dependencies.viewmodels
     implementation Dependencies.lifecycle_extensions
     implementation Dependencies.easyimage
+    implementation Dependencies.kotlin_coroutines_play_services
 
     kapt Dependencies.dagger_compiler
     kapt Dependencies.compiler
