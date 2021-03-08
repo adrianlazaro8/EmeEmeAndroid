@@ -21,32 +21,41 @@ class CreateProjectViewModel(
             return _model
         }
 
-    fun createProject(project: Project) = viewModelScope.launch {
-        createProjectUseCase.invoke(project)
+    fun createProject(project: Project, projectImage: File? = null) = viewModelScope.launch {
+        _model.value = UiModel.Loading
+        if (project.latitude == 0.toDouble() || project.longitude == 0.toDouble()) {
+            _model.value = UiModel.InvalidLatLng
+        } else if (projectImage != null && project.thumbnail.isEmpty()) {
+            uploadImage(projectImage, project)
+        } else {
+            val createdProject = createProjectUseCase.invoke(project)
+            _model.value = UiModel.Created(createdProject)
+        }
     }
 
-    fun uploadImage(fileToUpload: File?) {
-        if (fileToUpload != null) {
-            viewModelScope.launch {
-                _model.value = UiModel.Loading
-                uploadImageUseCase.invoke(fileToUpload,
-                    onSuccess = {
-                        _model.value = UiModel.ImageUploaded(it)
-                    },
-                    onFailure = {
-
-                    },
-                    progressListener = { bytesTransferred, totalBytes ->  }
-                )
-            }
+    private fun uploadImage(fileToUpload: File, project: Project) {
+        viewModelScope.launch {
+            _model.value = UiModel.Loading
+            uploadImageUseCase.invoke(fileToUpload,
+                onSuccess = {
+                    project.thumbnail = it
+                    createProject(project, fileToUpload)
+                },
+                onFailure = {
+                    _model.value = UiModel.ImageErrorUpload
+                },
+                progressListener = { bytesTransferred, totalBytes -> }
+            )
         }
     }
 
 
     sealed class UiModel {
         object Loading : UiModel()
+        object Error : UiModel()
+        object InvalidLatLng : UiModel()
+        object ImageErrorUpload : UiModel()
         class Created(val project: Project) : UiModel()
-        class ImageUploaded(val url: String) : UiModel()
     }
 
 }

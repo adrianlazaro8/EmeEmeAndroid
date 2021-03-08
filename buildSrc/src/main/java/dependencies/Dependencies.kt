@@ -21,4 +21,5 @@ object Dependencies {
     val legacy = "androidx.legacy:legacy-support-v4:${Versions.legacy}"
     val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle_version}"
     val easyimage = "com.github.jkwiecien:EasyImage:${Versions.easyimage_version}"
+    val kotlin_coroutines_play_services = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.kotlin_coroutines_play_services}"
 }

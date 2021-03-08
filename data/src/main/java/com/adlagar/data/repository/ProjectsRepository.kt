@@ -10,7 +10,7 @@ class ProjectsRepository(
         return projectsRemoteDataSource.getProjects()
     }
 
-    suspend fun createProject(project: Project) {
+    suspend fun createProject(project: Project): Project {
         return projectsRemoteDataSource.createProject(project)
     }
 }

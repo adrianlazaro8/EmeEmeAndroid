@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.R
 import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
@@ -86,11 +87,25 @@ class CreateProjectFragment : Fragment() {
                         Manifest.permission.CAMERA,
                         Manifest.permission.READ_EXTERNAL_STORAGE
                     ), 0
-                );
+                )
             } else {
                 takePhoto()
             }
         }
+
+        viewModel.model.observe(viewLifecycleOwner, Observer { uiModel ->
+            when (uiModel) {
+                is CreateProjectViewModel.UiModel.Loading -> Log.d(
+                    this::class.simpleName,
+                    "Loading"
+                )
+                is CreateProjectViewModel.UiModel.Created -> findNavController().navigateUp()
+                CreateProjectViewModel.UiModel.Error -> TODO()
+                CreateProjectViewModel.UiModel.InvalidLatLng -> TODO()
+                CreateProjectViewModel.UiModel.ImageErrorUpload -> TODO()
+            }
+        })
+
 
     }
 
@@ -123,27 +138,10 @@ class CreateProjectFragment : Fragment() {
         binding?.let {
             it.btCreateProject.setOnClickListener { _ ->
                 val project: Project = createProjectFromInputs(it)
-                if (projectImage != null) {
-                    viewModel.model.observe(viewLifecycleOwner, Observer { uiModel ->
-                        when (uiModel) {
-                            is CreateProjectViewModel.UiModel.Loading -> Log.d(
-                                this::class.simpleName,
-                                "Loading"
-                            )
-                            is CreateProjectViewModel.UiModel.Created -> TODO()
-                            is CreateProjectViewModel.UiModel.ImageUploaded -> {
-                                project.thumbnail = uiModel.url
-                                viewModel.createProject(project)
-                            }
-                        }
-                    })
-                    viewModel.uploadImage(projectImage)
-                } else {
-                    viewModel.createProject(project)
-                }
+                viewModel.createProject(project, projectImage)
             }
-
         }
+
     }
 
     private fun createProjectFromInputs(binding: FragmentCreateProjectBinding): Project {

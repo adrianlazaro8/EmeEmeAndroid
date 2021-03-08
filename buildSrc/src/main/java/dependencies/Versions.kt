@@ -35,4 +35,6 @@ object Versions  {
     val lifecycle_version = "2.2.0"
     val arch_version = "2.1.0"
     val easyimage_version = "3.0.4"
+
+    val kotlin_coroutines_play_services = "1.4.3"
 }
