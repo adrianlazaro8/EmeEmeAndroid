@@ -16,7 +16,7 @@ class PortfolioAdapter(private val projects: List<Project>) :
     }
 
     override fun onBindViewHolder(holder: ProjectsViewHolder, position: Int) {
-        val currentProject = projects[0]
+        val currentProject = projects[position]
         with(currentProject){
             holder.ivProject.loadImage(currentProject.thumbnail)
             holder.tvName.text = title
