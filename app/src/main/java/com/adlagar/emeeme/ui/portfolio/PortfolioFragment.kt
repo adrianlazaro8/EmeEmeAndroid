@@ -42,6 +42,7 @@ class PortfolioFragment : Fragment() {
         when (uiModel) {
             is PortfolioViewModel.UiModel.Content -> showProjects(uiModel.projects)
             is PortfolioViewModel.UiModel.Loading -> Log.d("", "")
+            PortfolioViewModel.UiModel.Empty -> Log.d("", "")
         }
     }
 
