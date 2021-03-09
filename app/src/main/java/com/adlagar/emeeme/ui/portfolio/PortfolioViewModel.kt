@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.adlagar.domain.model.Project
-import com.adlagar.domain.model.ProjectImage
 import com.adlagar.usecases.GetAllProjectsUseCase
 import kotlinx.coroutines.launch
 
@@ -23,23 +22,18 @@ class PortfolioViewModel(
     private fun getProjects() {
         viewModelScope.launch {
             val projects = getAllProjectsUseCase.invoke()
-//                .map { fillProject(it) }
-            _model.value = UiModel.Content(projects)
+            if(projects.isNotEmpty()){
+                _model.value = UiModel.Content(projects)
+            } else {
+                _model.value = UiModel.Empty
+            }
         }
     }
 
     sealed class UiModel {
         object Loading : UiModel()
+        object Empty : UiModel()
         data class Content(val projects: List<Project>) : UiModel()
     }
 
-    private fun fillProject(project: Project): Project {
-        project.thumbnail = "https://picsum.photos/500/300"
-        project.images = mutableListOf(
-            ProjectImage(1, "test", "https://picsum.photos/500/300"),
-            ProjectImage(2, "test2", "https://picsum.photos/500/300"),
-            ProjectImage(3, "test3", "https://picsum.photos/500/300")
-        )
-        return project
-    }
 }
