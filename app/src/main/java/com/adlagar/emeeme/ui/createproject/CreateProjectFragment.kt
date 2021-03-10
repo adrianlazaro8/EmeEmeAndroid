@@ -38,12 +38,10 @@ class CreateProjectFragment : Fragment() {
 
     private var projectImage: File? = null
 
+    private lateinit var imageSelector: ImageSelector
+
     private val viewModel: CreateProjectViewModel by viewModels {
         getViewModelFactory { (activity as MainActivity).applicationComponent.createProjectViewModel }
-    }
-
-    private val imageSelector: ImageSelector by lazy {
-        ImageSelector(requireContext(), this)
     }
 
     override fun onCreateView(
@@ -79,7 +77,7 @@ class CreateProjectFragment : Fragment() {
         }
 
         binding?.ivImagePicker?.setOnClickListener {
-
+            imageSelector = ImageSelector(requireContext(), this, false)
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_DENIED
             ) {
@@ -118,8 +116,6 @@ class CreateProjectFragment : Fragment() {
                     )
             }
         })
-
-
     }
 
     private fun takePhoto() {
