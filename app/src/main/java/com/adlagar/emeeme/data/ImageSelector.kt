@@ -9,7 +9,7 @@ import java.io.File
 class ImageSelector(
     context: Context,
     private val fragment: Fragment,
-    multiplePicker: Boolean
+    multiplePicker: Boolean = false
 ) {
 
     var file: File? = null
