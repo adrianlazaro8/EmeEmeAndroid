@@ -15,7 +15,6 @@ class ProjectContentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentProjectContentBinding.inflate(inflater)
         return binding.root
     }
