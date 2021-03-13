@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginStart="@dimen/default_margin"
     android:layout_marginEnd="@dimen/default_margin"
-    tools:context=".ui.projectcontent.ProjectContentFragment">
+    tools:context=".ui.screens.projectcontent.ProjectContentFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_project_images"

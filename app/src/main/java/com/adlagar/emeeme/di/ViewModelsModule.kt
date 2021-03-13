@@ -1,9 +1,9 @@
 package com.adlagar.emeeme.di
 
-import com.adlagar.emeeme.ui.about.AboutUsViewModel
-import com.adlagar.emeeme.ui.contact.ContactViewModel
-import com.adlagar.emeeme.ui.createproject.CreateProjectViewModel
-import com.adlagar.emeeme.ui.portfolio.PortfolioViewModel
+import com.adlagar.emeeme.ui.screens.about.AboutUsViewModel
+import com.adlagar.emeeme.ui.screens.contact.ContactViewModel
+import com.adlagar.emeeme.ui.screens.createproject.CreateProjectViewModel
+import com.adlagar.emeeme.ui.screens.portfolio.PortfolioViewModel
 import com.adlagar.usecases.*
 import dagger.Module
 import dagger.Provides

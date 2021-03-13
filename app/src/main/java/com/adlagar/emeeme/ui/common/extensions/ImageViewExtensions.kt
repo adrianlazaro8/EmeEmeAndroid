@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.extensions
+package com.adlagar.emeeme.ui.common.extensions
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

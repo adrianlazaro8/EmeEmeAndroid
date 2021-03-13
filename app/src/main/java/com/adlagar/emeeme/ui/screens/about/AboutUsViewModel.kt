@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.about
+package com.adlagar.emeeme.ui.screens.about
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

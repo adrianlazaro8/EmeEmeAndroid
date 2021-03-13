@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui
+package com.adlagar.emeeme.ui.screens
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.portfolio
+package com.adlagar.emeeme.ui.screens.portfolio
 
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.R
 import com.adlagar.emeeme.databinding.FragmentPortfolioBinding
-import com.adlagar.emeeme.ui.MainActivity
-import com.adlagar.emeeme.ui.extensions.getViewModelFactory
+import com.adlagar.emeeme.ui.screens.MainActivity
+import com.adlagar.emeeme.ui.common.RecyclerPorfolioDecorator
+import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
 
 class PortfolioFragment : Fragment() {
 
@@ -49,7 +50,8 @@ class PortfolioFragment : Fragment() {
     private fun showProjects(projects: List<Project>) {
         binding?.let {
             it.rvProjects.addItemDecoration(
-                RecyclerPorfolioDecorator(resources.getDimension(R.dimen.recycler_margin).toInt()))
+                RecyclerPorfolioDecorator(resources.getDimension(R.dimen.recycler_margin).toInt())
+            )
             it.rvProjects.adapter = PortfolioAdapter(projects)
         }
     }

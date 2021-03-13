@@ -1,7 +1,7 @@
-package com.adlagar.emeeme.ui
+package com.adlagar.emeeme.ui.screens
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.adlagar.emeeme.R
 
 class SplashActivity : AppCompatActivity() {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.about.AboutUsFragment">
+    tools:context=".ui.screens.about.AboutUsFragment">
 
     <ImageView
         android:id="@+id/iv_about_us"

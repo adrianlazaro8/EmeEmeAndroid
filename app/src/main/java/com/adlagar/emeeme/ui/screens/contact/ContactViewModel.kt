@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.contact
+package com.adlagar.emeeme.ui.screens.contact
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

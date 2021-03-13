@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.portfolio
+package com.adlagar.emeeme.ui.common
 
 import android.graphics.Rect
 import android.view.View

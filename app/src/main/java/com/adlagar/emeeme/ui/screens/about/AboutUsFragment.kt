@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.about
+package com.adlagar.emeeme.ui.screens.about
 
 import android.Manifest
 import android.content.Intent
@@ -16,9 +16,9 @@ import androidx.lifecycle.Observer
 import com.adlagar.domain.model.AboutUs
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentAboutUsBinding
-import com.adlagar.emeeme.ui.MainActivity
-import com.adlagar.emeeme.ui.extensions.getViewModelFactory
-import com.adlagar.emeeme.ui.extensions.loadImage
+import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
+import com.adlagar.emeeme.ui.common.extensions.loadImage
+import com.adlagar.emeeme.ui.screens.MainActivity
 
 class AboutUsFragment : Fragment() {
 

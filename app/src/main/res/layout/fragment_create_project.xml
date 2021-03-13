@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/default_margin"
-    tools:context="com.adlagar.emeeme.ui.createproject.CreateProjectFragment">
+    tools:context=".ui.screens.createproject.CreateProjectFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

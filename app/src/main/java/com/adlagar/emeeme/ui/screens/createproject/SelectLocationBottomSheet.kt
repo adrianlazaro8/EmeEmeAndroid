@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.createproject
+package com.adlagar.emeeme.ui.screens.createproject
 
 import android.os.Bundle
 import android.view.LayoutInflater

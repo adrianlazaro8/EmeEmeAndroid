@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/contact"
-        android:name="com.adlagar.emeeme.ui.contact.ContactFragment"
+        android:name="com.adlagar.emeeme.ui.screens.contact.ContactFragment"
         android:label="fragment_contact"
         tools:layout="@layout/fragment_contact" />
 
     <fragment
         android:id="@+id/about_us"
-        android:name="com.adlagar.emeeme.ui.about.AboutUsFragment"
+        android:name="com.adlagar.emeeme.ui.screens.about.AboutUsFragment"
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us" />
 
     <fragment
         android:id="@+id/portfolio"
-        android:name="com.adlagar.emeeme.ui.portfolio.PortfolioFragment"
+        android:name="com.adlagar.emeeme.ui.screens.portfolio.PortfolioFragment"
         android:label="fragment_portfolio"
         tools:layout="@layout/fragment_portfolio" >
         <action
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/createProjectFragment"
-        android:name="com.adlagar.emeeme.ui.createproject.CreateProjectFragment"
+        android:name="com.adlagar.emeeme.ui.screens.createproject.CreateProjectFragment"
         android:label="fragment_create_project"
         tools:layout="@layout/fragment_create_project" />
 

@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.contact
+package com.adlagar.emeeme.ui.screens.contact
 
 import android.os.Bundle
 import android.util.Log
@@ -13,8 +13,8 @@ import com.adlagar.domain.model.ContactPerson
 import com.adlagar.emeeme.R
 import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 import com.adlagar.emeeme.databinding.FragmentContactBinding
-import com.adlagar.emeeme.ui.MainActivity
-import com.adlagar.emeeme.ui.extensions.getViewModelFactory
+import com.adlagar.emeeme.ui.screens.MainActivity
+import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment

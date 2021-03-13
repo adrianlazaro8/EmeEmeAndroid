@@ -1,4 +1,4 @@
-package com.adlagar.emeeme.ui.createproject
+package com.adlagar.emeeme.ui.screens.createproject
 
 import android.Manifest
 import android.content.Intent
@@ -21,9 +21,9 @@ import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentCreateProjectBinding
 import com.adlagar.emeeme.extensions.showSnackbar
-import com.adlagar.emeeme.ui.MainActivity
-import com.adlagar.emeeme.ui.extensions.getViewModelFactory
-import com.adlagar.emeeme.ui.extensions.loadImage
+import com.adlagar.emeeme.ui.screens.MainActivity
+import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
+import com.adlagar.emeeme.ui.common.extensions.loadImage
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng

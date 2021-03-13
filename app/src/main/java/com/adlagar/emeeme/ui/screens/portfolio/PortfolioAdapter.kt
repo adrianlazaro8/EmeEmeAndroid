@@ -1,11 +1,11 @@
-package com.adlagar.emeeme.ui.portfolio
+package com.adlagar.emeeme.ui.screens.portfolio
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.databinding.ItemPortfolioBinding
-import com.adlagar.emeeme.ui.extensions.loadImage
+import com.adlagar.emeeme.ui.common.extensions.loadImage
 
 class PortfolioAdapter(private val projects: List<Project>) :
     RecyclerView.Adapter<PortfolioAdapter.ProjectsViewHolder>() {
