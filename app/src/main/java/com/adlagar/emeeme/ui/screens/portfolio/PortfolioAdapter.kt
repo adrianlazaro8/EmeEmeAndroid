@@ -7,7 +7,9 @@ import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.databinding.ItemPortfolioBinding
 import com.adlagar.emeeme.ui.common.extensions.loadImage
 
-class PortfolioAdapter(private val projects: List<Project>) :
+class PortfolioAdapter(
+    private val projects: List<Project>,
+    private val itemClick: (Project) -> Unit) :
     RecyclerView.Adapter<PortfolioAdapter.ProjectsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectsViewHolder {
@@ -20,6 +22,9 @@ class PortfolioAdapter(private val projects: List<Project>) :
         with(currentProject){
             holder.ivProject.loadImage(currentProject.thumbnail)
             holder.tvName.text = title
+            holder.itemView.setOnClickListener {
+                itemClick.invoke(currentProject)
+            }
         }
     }
 

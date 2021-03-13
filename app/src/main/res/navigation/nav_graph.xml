@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_portfolio_to_createProjectFragment"
             app:destination="@id/createProjectFragment" />
+        <action
+            android:id="@+id/action_portfolio_to_projectContentFragment"
+            app:destination="@id/projectContentFragment" />
     </fragment>
 
     <fragment
@@ -32,5 +35,11 @@
         android:name="com.adlagar.emeeme.ui.screens.createproject.CreateProjectFragment"
         android:label="fragment_create_project"
         tools:layout="@layout/fragment_create_project" />
+
+    <fragment
+        android:id="@+id/projectContentFragment"
+        android:name="com.adlagar.emeeme.ui.screens.projectcontent.ProjectContentFragment"
+        android:label="fragment_project_content"
+        tools:layout="@layout/fragment_project_content" />
 
 </navigation>

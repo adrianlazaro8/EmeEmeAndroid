@@ -30,6 +30,7 @@ class PortfolioViewModel(
         }
     }
 
+
     sealed class UiModel {
         object Loading : UiModel()
         object Empty : UiModel()
