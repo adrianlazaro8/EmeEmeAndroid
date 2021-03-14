@@ -7,7 +7,7 @@ object Versions  {
     val crashlytics_build = "2.2.0"
     val navigation_safe_args = "2.2.0"
 
-    val kotlin_version = "1.3.72"
+    val kotlin_version = "1.4.31"
     val core_ktx = "1.3.1"
     val app_compat = "1.1.0"
     val contraint_layout = "1.1.3"

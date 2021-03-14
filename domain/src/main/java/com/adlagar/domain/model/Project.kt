@@ -1,5 +1,7 @@
 package com.adlagar.domain.model
 
+import java.io.Serializable
+
 data class Project(
     val id: String = "0",
     val title: String = "",
@@ -11,4 +13,4 @@ data class Project(
     var images: List<ProjectImage> = mutableListOf(),
     val latitude: Double = 0.0,
     val longitude: Double = 0.0
-)
+): Serializable

@@ -1,7 +1,10 @@
 import dependencies.Versions
 
-apply plugin: 'java-library'
-apply plugin: 'kotlin'
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-parcelize'
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
