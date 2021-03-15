@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +27,7 @@ class ProjectContentFragment : Fragment() {
     private lateinit var project: Project
 
     private val viewModel: ProjectContentViewModel by viewModels {
-        getViewModelFactory { (activity as MainActivity).applicationComponent.createProjectViewModel }
+        getViewModelFactory { (activity as MainActivity).applicationComponent.projectContentViewModel }
     }
 
     override fun onCreateView(
@@ -39,6 +40,17 @@ class ProjectContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.uiState.observe(viewLifecycleOwner){
+            when(it){
+                is ProjectContentViewModel.UiState.ProjectUpdated -> {
+                    Log.d("","")
+                }
+                is ProjectContentViewModel.UiState.Error -> {
+                    Log.d("","")
+                }
+            }
+        }
 
         binding.fabAddImage.setOnClickListener {
             imageSelector = ImageSelector(requireContext(), this, false)
@@ -65,13 +77,7 @@ class ProjectContentFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         imageSelector.handleResult(requestCode, resultCode, data) {
             it?.let {
-                viewModel.uploadImage(it,
-                    onSuccess = { url ->
-                        project.images.add(url)
-                    },
-                    onFailure = {
-
-                    })
+                viewModel.uploadImage(project, it)
             }
         }
     }
