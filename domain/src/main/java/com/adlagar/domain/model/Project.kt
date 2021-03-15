@@ -10,7 +10,7 @@ data class Project(
     var thumbnail: String = "",
     val featured: Boolean = false,
     val city: String = "",
-    var images: List<ProjectImage> = mutableListOf(),
+    var images: MutableList<String> = mutableListOf(),
     val latitude: Double = 0.0,
     val longitude: Double = 0.0
 ): Serializable

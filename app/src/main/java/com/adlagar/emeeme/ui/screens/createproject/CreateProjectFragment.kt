@@ -21,9 +21,9 @@ import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentCreateProjectBinding
 import com.adlagar.emeeme.extensions.showSnackbar
-import com.adlagar.emeeme.ui.screens.MainActivity
 import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
 import com.adlagar.emeeme.ui.common.extensions.loadImage
+import com.adlagar.emeeme.ui.screens.MainActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -177,7 +177,7 @@ class CreateProjectFragment : Fragment() {
             thumbnail = String(),
             featured = binding.cbFeaturedProject.isChecked,
             city = city,
-            images = listOf(),
+            images = mutableListOf(),
             latitude = latitude,
             longitude = longitude
         )

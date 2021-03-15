@@ -4,6 +4,7 @@ import com.adlagar.emeeme.ui.screens.about.AboutUsViewModel
 import com.adlagar.emeeme.ui.screens.contact.ContactViewModel
 import com.adlagar.emeeme.ui.screens.createproject.CreateProjectViewModel
 import com.adlagar.emeeme.ui.screens.portfolio.PortfolioViewModel
+import com.adlagar.emeeme.ui.screens.projectcontent.ProjectContentViewModel
 import com.adlagar.usecases.*
 import dagger.Module
 import dagger.Provides
@@ -24,6 +25,13 @@ class ViewModelsModule {
         uploadImageUseCase: UploadImageUseCase
     ): CreateProjectViewModel {
         return CreateProjectViewModel(createProjectUseCase, uploadImageUseCase)
+    }
+
+    @Provides
+    fun projectContentViewModelProvider(
+        uploadImageUseCase: UploadImageUseCase
+    ): ProjectContentViewModel {
+        return ProjectContentViewModel(uploadImageUseCase)
     }
 
     @Provides
