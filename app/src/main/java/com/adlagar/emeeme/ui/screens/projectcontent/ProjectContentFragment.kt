@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentProjectContentBinding
@@ -19,6 +20,8 @@ import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
 import com.adlagar.emeeme.ui.screens.MainActivity
 
 class ProjectContentFragment : Fragment() {
+
+    private val args: ProjectContentFragmentArgs by navArgs()
 
     private lateinit var imageSelector: ImageSelector
 
@@ -40,6 +43,7 @@ class ProjectContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        project = args.project
 
         viewModel.uiState.observe(viewLifecycleOwner){
             when(it){

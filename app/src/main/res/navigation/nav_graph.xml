@@ -40,6 +40,10 @@
         android:id="@+id/projectContentFragment"
         android:name="com.adlagar.emeeme.ui.screens.projectcontent.ProjectContentFragment"
         android:label="fragment_project_content"
-        tools:layout="@layout/fragment_project_content" />
+        tools:layout="@layout/fragment_project_content" >
+        <argument
+            android:name="project"
+            app:argType="com.adlagar.domain.model.Project" />
+    </fragment>
 
 </navigation>

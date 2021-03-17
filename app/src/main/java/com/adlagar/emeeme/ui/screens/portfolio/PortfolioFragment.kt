@@ -52,8 +52,8 @@ class PortfolioFragment : Fragment() {
             it.rvProjects.addItemDecoration(
                 RecyclerPorfolioDecorator(resources.getDimension(R.dimen.recycler_margin).toInt())
             )
-            it.rvProjects.adapter = PortfolioAdapter(projects){
-                findNavController().navigate(PortfolioFragmentDirections.actionPortfolioToProjectContentFragment())
+            it.rvProjects.adapter = PortfolioAdapter(projects){ project ->
+                findNavController().navigate(PortfolioFragmentDirections.actionPortfolioToProjectContentFragment(project))
             }
         }
     }
