@@ -37,4 +37,5 @@ object Versions  {
     val easyimage_version = "3.0.4"
 
     val kotlin_coroutines_play_services = "1.4.3"
+    val image_compressor_version = "3.0.1"
 }
