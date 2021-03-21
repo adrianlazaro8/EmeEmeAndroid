@@ -114,6 +114,10 @@ class CreateProjectFragment : Fragment() {
                             R.string.error_uploading_image
                         )
                     )
+                is CreateProjectViewModel.UiModel.ResizedImage -> {
+                    projectImage = uiModel.file
+                    binding?.ivImagePicker?.loadImage(uiModel.file.absolutePath.toString())
+                }
             }
         })
     }
@@ -124,9 +128,10 @@ class CreateProjectFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        imageSelector.handleResult(requestCode, resultCode, data) {
-            projectImage = it
-            binding?.ivImagePicker?.loadImage(it?.absolutePath.toString())
+        imageSelector.handleResult(requestCode, resultCode, data) { file ->
+            file?.let {
+                viewModel.resizeImage(requireContext(), it)
+            }
         }
 
     }

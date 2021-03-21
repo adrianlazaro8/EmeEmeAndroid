@@ -22,4 +22,5 @@ object Dependencies {
     val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle_version}"
     val easyimage = "com.github.jkwiecien:EasyImage:${Versions.easyimage_version}"
     val kotlin_coroutines_play_services = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.kotlin_coroutines_play_services}"
+    val image_compressor = "id.zelory:compressor:${Versions.image_compressor_version}"
 }

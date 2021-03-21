@@ -1,5 +1,6 @@
 package com.adlagar.emeeme.ui.screens.createproject
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,6 +8,9 @@ import androidx.lifecycle.viewModelScope
 import com.adlagar.domain.model.Project
 import com.adlagar.usecases.CreateProjectUseCase
 import com.adlagar.usecases.UploadImageUseCase
+import id.zelory.compressor.Compressor
+import id.zelory.compressor.constraint.quality
+import id.zelory.compressor.constraint.resolution
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -49,12 +53,20 @@ class CreateProjectViewModel(
         }
     }
 
+    fun resizeImage(context: Context, file: File) = viewModelScope.launch {
+        _model.value = UiModel.ResizedImage(Compressor.compress(context, file){
+            resolution(720,480)
+            quality(80)
+        })
+    }
+
 
     sealed class UiModel {
         object Loading : UiModel()
         object Error : UiModel()
         object InvalidLatLng : UiModel()
         object ImageErrorUpload : UiModel()
+        class ResizedImage(val file: File): UiModel()
         class Created(val project: Project) : UiModel()
     }
 
