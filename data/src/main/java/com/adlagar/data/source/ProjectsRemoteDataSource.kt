@@ -5,4 +5,5 @@ import com.adlagar.domain.model.Project
 interface ProjectsRemoteDataSource {
     suspend fun getProjects(): List<Project>
     suspend fun createProject(project: Project): Project
+    suspend fun updateProject(project: Project): Project
 }

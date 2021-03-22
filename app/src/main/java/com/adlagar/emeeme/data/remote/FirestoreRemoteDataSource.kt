@@ -39,6 +39,32 @@ class FirestoreRemoteDataSource(
         }
     }
 
+    override suspend fun updateProject(project: Project): Project {
+        val projectHash = hashMapOf(
+            "id" to project.id,
+            "title" to project.title,
+            "description" to project.description,
+            "createdDate" to project.createdDateMillis,
+            "thumbnail" to project.thumbnail,
+            "featured" to project.featured,
+            "city" to project.city,
+            "images" to project.images,
+            "latitude" to project.latitude,
+            "longitude" to project.longitude
+        )
+
+        return try {
+            firebaseFirestore
+                .collection("projects")
+                .document()
+                .set(projectHash)
+                .await()
+            project
+        } catch (exception: CancellationException) {
+            project
+        }
+    }
+
     override suspend fun getProjects(): List<Project> =
         suspendCancellableCoroutine { continuation ->
             val projects = firebaseFirestore.collection("projects")

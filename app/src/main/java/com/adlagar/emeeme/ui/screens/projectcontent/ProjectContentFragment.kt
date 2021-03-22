@@ -45,13 +45,16 @@ class ProjectContentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         project = args.project
 
-        viewModel.uiState.observe(viewLifecycleOwner){
-            when(it){
-                is ProjectContentViewModel.UiState.ProjectUpdated -> {
-                    Log.d("","")
+        viewModel.uiState.observe(viewLifecycleOwner) {
+            when (it) {
+                is ProjectContentViewModel.UiState.ImageUploaded -> {
+                    viewModel.updateProject(it.project)
                 }
                 is ProjectContentViewModel.UiState.Error -> {
-                    Log.d("","")
+                    Log.d("", "")
+                }
+                is ProjectContentViewModel.UiState.ProjectUpdated -> {
+                    Log.d("", "")
                 }
             }
         }
@@ -81,7 +84,7 @@ class ProjectContentFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         imageSelector.handleResult(requestCode, resultCode, data) {
             it?.let {
-                viewModel.uploadImage(project, it)
+                viewModel.uploadResizedImage(requireContext(), project, it)
             }
         }
     }
