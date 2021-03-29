@@ -1,5 +1,6 @@
 package com.adlagar.emeeme.di
 
+import com.adlagar.data.source.ProjectsRemoteDataSource
 import com.adlagar.emeeme.ui.screens.about.AboutUsViewModel
 import com.adlagar.emeeme.ui.screens.contact.ContactViewModel
 import com.adlagar.emeeme.ui.screens.createproject.CreateProjectViewModel
@@ -29,9 +30,10 @@ class ViewModelsModule {
 
     @Provides
     fun projectContentViewModelProvider(
+        projectsRemoteDataSource: ProjectsRemoteDataSource,
         uploadImageUseCase: UploadImageUseCase
     ): ProjectContentViewModel {
-        return ProjectContentViewModel(uploadImageUseCase)
+        return ProjectContentViewModel(projectsRemoteDataSource, uploadImageUseCase)
     }
 
     @Provides
