@@ -16,7 +16,7 @@ class FirestoreImageUploader(
         progressListener: (Long, Long) -> Unit
     ) {
         val filePath = Uri.fromFile(fileToUpload.absoluteFile)
-        val imagesRef = firebaseStorage.reference.child("aboutus/${System.currentTimeMillis()}.jpg")
+        val imagesRef = firebaseStorage.reference.child("projects/${System.currentTimeMillis()}.jpg")
         imagesRef.putFile(filePath)
             .addOnFailureListener {
                 onFailure.invoke(it.localizedMessage ?: "Unknown")
