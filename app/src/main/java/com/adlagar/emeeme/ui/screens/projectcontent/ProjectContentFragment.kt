@@ -45,6 +45,9 @@ class ProjectContentFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         project = args.project
 
+        val adapter = ProjectContentAdapter(project.images)
+        binding.rvProjectImages.adapter = adapter
+
         viewModel.uiState.observe(viewLifecycleOwner) {
             when (it) {
                 is ProjectContentViewModel.UiState.ImageUploaded -> {
