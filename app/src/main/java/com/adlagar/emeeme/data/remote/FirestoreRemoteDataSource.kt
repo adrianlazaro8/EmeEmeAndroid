@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.tasks.await
+import java.util.*
 import kotlin.coroutines.resume
 
 class FirestoreRemoteDataSource(
@@ -13,9 +14,9 @@ class FirestoreRemoteDataSource(
 ) : ProjectsRemoteDataSource {
 
     override suspend fun createProject(project: Project): Project {
-        val projectId = firebaseFirestore.collection("projects").document().id
+        val randomId = UUID.randomUUID().toString()
         val projectHash = hashMapOf(
-            "id" to projectId,
+            "id" to randomId,
             "title" to project.title,
             "description" to project.description,
             "createdDate" to project.createdDateMillis,
@@ -30,7 +31,7 @@ class FirestoreRemoteDataSource(
         return try {
             firebaseFirestore
                 .collection("projects")
-                .document()
+                .document(randomId)
                 .set(projectHash)
                 .await()
             project
@@ -56,8 +57,8 @@ class FirestoreRemoteDataSource(
         return try {
             firebaseFirestore
                 .collection("projects")
-                .document()
-                .set(projectHash)
+                .document(project.id)
+                .update(projectHash)
                 .await()
             project
         } catch (exception: CancellationException) {
