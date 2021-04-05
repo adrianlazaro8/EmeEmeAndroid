@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.adlagar.domain.model.Project
+import com.adlagar.emeeme.FlavorValues
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentProjectContentBinding
 import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
@@ -62,6 +63,7 @@ class ProjectContentFragment : Fragment() {
             }
         }
 
+        binding.fabAddImage.visibility = FlavorValues.createProjectButtonVisibility
         binding.fabAddImage.setOnClickListener {
             imageSelector = ImageSelector(requireContext(), this, false)
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
