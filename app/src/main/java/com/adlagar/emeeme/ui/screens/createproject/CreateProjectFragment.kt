@@ -101,18 +101,14 @@ class CreateProjectFragment : Fragment() {
                 is CreateProjectViewModel.UiModel.Created ->
                     findNavController().navigateUp()
                 CreateProjectViewModel.UiModel.Error ->
-                    binding?.root?.showSnackbar(getString(R.string.error))
+                    binding?.root?.showSnackbar(R.string.error)
                 CreateProjectViewModel.UiModel.InvalidLatLng ->
                     binding?.root?.showSnackbar(
-                        getString(
-                            R.string.invalid_lat_lng
-                        )
+                        R.string.invalid_lat_lng
                     )
                 CreateProjectViewModel.UiModel.ImageErrorUpload ->
                     binding?.root?.showSnackbar(
-                        getString(
-                            R.string.error_uploading_image
-                        )
+                        R.string.error_uploading_image
                     )
                 is CreateProjectViewModel.UiModel.ResizedImage -> {
                     projectImage = uiModel.file

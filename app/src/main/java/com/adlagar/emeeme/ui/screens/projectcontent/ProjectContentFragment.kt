@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +14,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.FlavorValues
+import com.adlagar.emeeme.R
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentProjectContentBinding
+import com.adlagar.emeeme.extensions.showSnackbar
 import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
 import com.adlagar.emeeme.ui.screens.MainActivity
 
@@ -55,10 +56,10 @@ class ProjectContentFragment : Fragment() {
                     viewModel.updateProject(it.project)
                 }
                 is ProjectContentViewModel.UiState.Error -> {
-                    Log.d("", "")
+                    binding.root.showSnackbar(R.string.project_updated)
                 }
                 is ProjectContentViewModel.UiState.ProjectUpdated -> {
-                    Log.d("", "")
+                    binding.root.showSnackbar(R.string.project_updated)
                 }
             }
         }

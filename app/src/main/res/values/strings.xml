@@ -17,5 +17,7 @@
     <string name="invalid_lat_lng">Latitud y longitud no válidos</string>
     <string name="error">Error</string>
     <string name="error_uploading_image">Error al subir la imagen</string>
+    <string name="project_creation_error">El proyecto no se ha podido crear</string>
+    <string name="project_updated">El proyecto ha sido actualizado</string>
 
 </resources>
