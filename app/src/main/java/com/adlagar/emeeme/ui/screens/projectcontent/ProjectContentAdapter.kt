@@ -7,7 +7,7 @@ import com.adlagar.emeeme.databinding.ProjectImageBinding
 import com.adlagar.emeeme.ui.common.extensions.loadImage
 
 class ProjectContentAdapter(
-    private val images: List<String>
+    val images: MutableList<String>
 ) : RecyclerView.Adapter<ProjectContentAdapter.ProjectContentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectContentViewHolder {

@@ -13,7 +13,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.R
@@ -92,7 +91,7 @@ class CreateProjectFragment : Fragment() {
             }
         }
 
-        viewModel.model.observe(viewLifecycleOwner, Observer { uiModel ->
+        viewModel.model.observe(viewLifecycleOwner) { uiModel ->
             when (uiModel) {
                 is CreateProjectViewModel.UiModel.Loading -> Log.d(
                     this::class.simpleName,
@@ -115,7 +114,7 @@ class CreateProjectFragment : Fragment() {
                     binding?.ivImagePicker?.loadImage(uiModel.file.absolutePath.toString())
                 }
             }
-        })
+        }
     }
 
     private fun takePhoto() {

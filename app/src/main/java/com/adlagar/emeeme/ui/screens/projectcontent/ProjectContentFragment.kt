@@ -56,9 +56,10 @@ class ProjectContentFragment : Fragment() {
                     viewModel.updateProject(it.project)
                 }
                 is ProjectContentViewModel.UiState.Error -> {
-                    binding.root.showSnackbar(R.string.project_updated)
+                    binding.root.showSnackbar(R.string.error_uploading_image)
                 }
                 is ProjectContentViewModel.UiState.ProjectUpdated -> {
+                    adapter.images.add(adapter.images.size, project.thumbnail)
                     binding.root.showSnackbar(R.string.project_updated)
                 }
             }
