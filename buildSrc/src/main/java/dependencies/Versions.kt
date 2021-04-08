@@ -38,4 +38,6 @@ object Versions  {
 
     val kotlin_coroutines_play_services = "1.4.3"
     val image_compressor_version = "3.0.1"
+
+    val lottie_version = "3.7.0"
 }

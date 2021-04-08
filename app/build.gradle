@@ -88,6 +88,7 @@ dependencies {
     implementation Dependencies.easyimage
     implementation Dependencies.kotlin_coroutines_play_services
     implementation Dependencies.image_compressor
+    implementation Dependencies.lottie
 
     kapt Dependencies.dagger_compiler
     kapt Dependencies.compiler
