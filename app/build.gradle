@@ -4,7 +4,6 @@ import dependencies.Application
 import dependencies.Dependencies
 import dependencies.Java
 import dependencies.Kapt
-import dependencies.SupportDependencies
 import dependencies.TestDependencies
 
 plugins {
@@ -66,10 +65,6 @@ android {
 }
 
 dependencies {
-    implementation SupportDependencies.appcompat
-    implementation SupportDependencies.contraint_layout
-    implementation SupportDependencies.material_design
-
     implementation Dependencies.values
     kapt Kapt.values
 

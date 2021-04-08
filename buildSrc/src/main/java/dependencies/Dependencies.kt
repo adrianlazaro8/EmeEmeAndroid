@@ -2,7 +2,10 @@ package dependencies
 
 object Dependencies {
 
-    val values  = listOf(
+    val values = listOf(
+        "androidx.appcompat:appcompat:${Versions.app_compat}",
+        "androidx.constraintlayout:constraintlayout:${Versions.contraint_layout}",
+        "com.google.android.material:material:${Versions.material_design}",
         "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin_version}",
         "androidx.core:core-ktx:${Versions.core_ktx}",
         "com.google.firebase:firebase-analytics-ktx:${Versions.firebase_analytics}",
