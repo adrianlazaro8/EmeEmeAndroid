@@ -67,8 +67,7 @@ android {
 dependencies {
     implementation Dependencies.values
     kapt Kapt.values
-
-    testImplementation TestDependencies.junit
+    testImplementation TestDependencies.values
 
     androidTestImplementation AndroidTestDependencies.junit_androidx
     androidTestImplementation AndroidTestDependencies.espresso

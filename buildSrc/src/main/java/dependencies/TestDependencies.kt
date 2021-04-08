@@ -1,5 +1,7 @@
 package dependencies
 
 object TestDependencies {
-    val junit = "junit:junit:${Versions.junit}"
+    val values = listOf(
+        "junit:junit:${Versions.junit}"
+    )
 }
