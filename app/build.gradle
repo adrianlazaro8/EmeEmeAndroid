@@ -3,6 +3,7 @@ import dependencies.AnnotationProcessor
 import dependencies.Application
 import dependencies.Dependencies
 import dependencies.Java
+import dependencies.Kapt
 import dependencies.SupportDependencies
 import dependencies.TestDependencies
 
@@ -65,33 +66,12 @@ android {
 }
 
 dependencies {
-    implementation Dependencies.kotlin_standard_library
-    implementation Dependencies.kotlin_core
     implementation SupportDependencies.appcompat
     implementation SupportDependencies.contraint_layout
     implementation SupportDependencies.material_design
-    implementation Dependencies.firebase_analytics
-    implementation Dependencies.firebase_firestore
-    implementation Dependencies.firebase_storage
-    implementation Dependencies.crashlytics
-    implementation Dependencies.retrofit
-    implementation Dependencies.dagger
-    implementation Dependencies.navigation_fragment
-    implementation Dependencies.navigation_ui
-    implementation Dependencies.maps
-    implementation Dependencies.maps_ktx
-    implementation Dependencies.glide
-    implementation Dependencies.legacy
-    implementation Dependencies.livedata
-    implementation Dependencies.viewmodels
-    implementation Dependencies.lifecycle_extensions
-    implementation Dependencies.easyimage
-    implementation Dependencies.kotlin_coroutines_play_services
-    implementation Dependencies.image_compressor
-    implementation Dependencies.lottie
 
-    kapt Dependencies.dagger_compiler
-    kapt Dependencies.compiler
+    implementation Dependencies.values
+    kapt Kapt.values
 
     testImplementation TestDependencies.junit
 
