@@ -1,10 +1,4 @@
-import dependencies.AndroidTestDependencies
-import dependencies.AnnotationProcessor
-import dependencies.Application
-import dependencies.Dependencies
-import dependencies.Java
-import dependencies.Kapt
-import dependencies.TestDependencies
+import dependencies.*
 
 plugins {
     id 'com.android.application'
@@ -69,9 +63,7 @@ dependencies {
     kapt Kapt.values
     testImplementation TestDependencies.values
     androidTestImplementation AndroidTestDependencies.values
-
-    annotationProcessor AnnotationProcessor.dagger
-    annotationProcessor AnnotationProcessor.glide
+    annotationProcessor AnnotationProcessor.values
 
     implementation project(":data")
     implementation project(":usecases")
