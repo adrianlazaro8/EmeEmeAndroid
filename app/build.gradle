@@ -68,10 +68,7 @@ dependencies {
     implementation Dependencies.values
     kapt Kapt.values
     testImplementation TestDependencies.values
-
-    androidTestImplementation AndroidTestDependencies.junit_androidx
-    androidTestImplementation AndroidTestDependencies.espresso
-    androidTestImplementation AndroidTestDependencies.navigation
+    androidTestImplementation AndroidTestDependencies.values
 
     annotationProcessor AnnotationProcessor.dagger
     annotationProcessor AnnotationProcessor.glide
