@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.adlagar.domain.model.Project
 import com.adlagar.emeeme.R
 import com.adlagar.emeeme.databinding.FragmentPortfolioBinding
+import com.adlagar.emeeme.databinding.LoadingBinding
 import com.adlagar.emeeme.ui.common.RecyclerPorfolioDecorator
 import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
 import com.adlagar.emeeme.ui.screens.MainActivity
@@ -49,6 +50,8 @@ class PortfolioFragment : Fragment() {
 
     private fun showProjects(projects: List<Project>) {
         binding?.let {
+            val loadingBinding = LoadingBinding.bind(it.root)
+            loadingBinding.loadingRoot.visibility = View.GONE
             it.rvProjects.addItemDecoration(
                 RecyclerPorfolioDecorator(resources.getDimension(R.dimen.recycler_margin).toInt())
             )

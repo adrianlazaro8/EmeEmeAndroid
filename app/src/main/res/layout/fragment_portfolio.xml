@@ -22,4 +22,6 @@
         android:contentDescription="@string/create_project"
         android:src="@drawable/ic_baseline_add_24" />
 
+    <include layout="@layout/loading"/>
+
 </FrameLayout>
