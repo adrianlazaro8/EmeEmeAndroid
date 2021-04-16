@@ -20,8 +20,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorPrimary" />
+        android:layout_height="20dp"
+        android:background="@drawable/black_to_transparent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragment"
