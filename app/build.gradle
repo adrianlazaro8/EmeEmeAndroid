@@ -56,6 +56,13 @@ android {
             applicationIdSuffix ".owner"
         }
     }
+    sourceSets {
+        owner {
+            java {
+                srcDirs 'src\\owner\\java', 'src\\owner\\java\\2'
+            }
+        }
+    }
 }
 
 dependencies {

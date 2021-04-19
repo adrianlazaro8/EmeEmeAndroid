@@ -65,7 +65,7 @@ class ProjectContentFragment : Fragment() {
             }
         }
 
-        binding.fabAddImage.visibility = FlavorValues.createProjectButtonVisibility
+        binding.fabAddImage.visibility = FlavorValues.projectContentImageVisibility
         binding.fabAddImage.setOnClickListener {
             imageSelector = ImageSelector(requireContext(), this, false)
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)

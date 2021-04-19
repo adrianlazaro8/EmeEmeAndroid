@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.adlagar.domain.model.Project
+import com.adlagar.emeeme.FlavorValues
 import com.adlagar.emeeme.R
 import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 import com.adlagar.emeeme.data.ImageSelector
@@ -145,6 +146,7 @@ class CreateProjectFragment : Fragment() {
 
     private fun createProjectButton() {
         binding?.let {
+            it.btCreateProject.visibility = FlavorValues.createProjectButtonVisibility
             it.btCreateProject.setOnClickListener { _ ->
                 val project: Project = createProjectFromInputs(it)
                 viewModel.createProject(project, projectImage)
