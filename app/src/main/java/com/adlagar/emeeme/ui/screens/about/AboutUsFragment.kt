@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.adlagar.domain.model.AboutUs
+import com.adlagar.emeeme.FlavorValues
 import com.adlagar.emeeme.data.ImageSelector
 import com.adlagar.emeeme.databinding.FragmentAboutUsBinding
 import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
@@ -45,6 +46,7 @@ class AboutUsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.aboutUs.observe(viewLifecycleOwner, Observer(::updateUI))
         binding?.let { binding ->
+            binding.btAboutusContinue.visibility = FlavorValues.studyInfoSaveButtonVisibility
             binding.btAboutusContinue.setOnClickListener {
                 imageSelector.file?.let {
                     viewModel.modifyAboutCompany(it, binding.etAboutus.text.toString())
