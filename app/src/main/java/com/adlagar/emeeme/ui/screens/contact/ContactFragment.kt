@@ -10,11 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.adlagar.domain.model.Contact
 import com.adlagar.domain.model.ContactPerson
+import com.adlagar.emeeme.FlavorValues
 import com.adlagar.emeeme.R
 import com.adlagar.emeeme.contact.GoogleMapUiSettingsCustomizer
 import com.adlagar.emeeme.databinding.FragmentContactBinding
-import com.adlagar.emeeme.ui.screens.MainActivity
 import com.adlagar.emeeme.ui.common.extensions.getViewModelFactory
+import com.adlagar.emeeme.ui.screens.MainActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
@@ -58,6 +59,7 @@ class ContactFragment : Fragment() {
 
     private fun saveButton() {
         binding?.let { binding ->
+            binding.btContactSave.visibility = FlavorValues.contactInfoSaveButtonVisibility
             binding.btContactSave.setOnClickListener {
                 val contact: Contact = createContactFromData(binding)
                 viewModel.updateContactInfo(contact)
