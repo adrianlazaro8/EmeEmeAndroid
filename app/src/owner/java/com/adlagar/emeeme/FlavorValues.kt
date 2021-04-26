@@ -7,7 +7,7 @@ class FlavorValues {
     companion object{
         val createProjectButtonVisibility = View.VISIBLE
         val projectContentImageVisibility = View.VISIBLE
-        val studyInfoSaveButtonVisibility = View.VISIBLE
+        val aboutUsInfoSaveButtonVisibility = View.VISIBLE
         val contactInfoSaveButtonVisibility = View.VISIBLE
         val textsAreEditable = true
     }

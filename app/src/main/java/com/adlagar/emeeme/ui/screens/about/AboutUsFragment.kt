@@ -46,7 +46,7 @@ class AboutUsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.aboutUs.observe(viewLifecycleOwner, Observer(::updateUI))
         binding?.let { binding ->
-            binding.btAboutusContinue.visibility = FlavorValues.studyInfoSaveButtonVisibility
+            binding.btAboutusContinue.visibility = FlavorValues.aboutUsInfoSaveButtonVisibility
             binding.btAboutusContinue.setOnClickListener {
                 imageSelector.file?.let {
                     viewModel.modifyAboutCompany(it, binding.etAboutus.text.toString())
